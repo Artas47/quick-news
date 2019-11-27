@@ -1,5 +1,6 @@
-import {combineReducers} from 'redux'
+import { combineReducers } from 'redux';
+import newsReducer from './newsReducer';
 
 export default combineReducers({
-  replaceMe: () => "replace me"
-})
+  news: newsReducer,
+});
