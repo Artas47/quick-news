@@ -13,7 +13,13 @@ export const News = () => {
   return (
     <Styled.NewsList>
       {fileteredNews.map(top => {
-        return <NewsItem title={top.title} imgUrl={top.urlToImage} />;
+        return (
+          <NewsItem
+            title={top.title}
+            imgUrl={top.urlToImage}
+            desc={top.description}
+          />
+        );
       })}
     </Styled.NewsList>
   );
