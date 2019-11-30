@@ -23,4 +23,13 @@ export const NewsItemTitle = styled.p`
   left: 1.5rem;
   color: white;
   font-size: 3rem;
+  @media only screen and (max-width: 650px) {
+    font-size: 2.3rem;
+  }
+  @media only screen and (max-width: 500px) {
+    font-size: 1.8rem;
+  }
+  @media only screen and (max-width: 400px) {
+    font-size: 1.3rem;
+  }
 `;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as Styled from './search-bar.styles';
+import { ReactComponent as SearchIcon } from '../../assets/search.svg';
 import {
   searchChange,
   fetchSearchNewsStart,
@@ -15,18 +16,22 @@ export const SearchBar = () => {
   };
   const onSubmit = event => {
     event.preventDefault();
-    console.log(searchTerm);
-    dispatch(fetchSearchNewsStart(searchTerm));
+    if (searchTerm.length) {
+      dispatch(fetchSearchNewsStart(searchTerm));
+    }
   };
   return (
-    <form onSubmit={onSubmit}>
+    <Styled.Form onSubmit={onSubmit}>
       <Styled.SearchBar
         value={searchTerm}
         onChange={onInputChange}
         placeholder={'Search for news'}
       />
-      <button type="submit">Search</button>
-    </form>
+
+      <Styled.SearchBarBtn type="submit">
+        <SearchIcon type="submit" />
+      </Styled.SearchBarBtn>
+    </Styled.Form>
   );
 };
 

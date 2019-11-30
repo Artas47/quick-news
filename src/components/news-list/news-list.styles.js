@@ -6,9 +6,16 @@ export const NewsList = styled.div`
   grid-auto-rows: 30rem;
   grid-auto-flow: dense;
   grid-gap: 3rem;
+  padding: 1rem 4rem;
 
   @media only screen and (max-width: 900px) {
     display: flex;
     flex-direction: column;
+    padding: 1rem 3rem;
+  }
+  @media only screen and (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
   }
 `;
