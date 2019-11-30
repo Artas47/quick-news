@@ -13,6 +13,14 @@ export default (state = INITIAL_STATE, action) => {
         topNews: action.payload.articles,
         isLoading: false,
       };
+    case 'FETCH_SEARCH_NEWS_START':
+      return { ...state, isLoading: true };
+    case 'FETCH_SEARCH_NEWS_SUCCESS':
+      return {
+        ...state,
+        topNews: action.payload.articles,
+        isLoading: false,
+      };
     default:
       return { ...state };
   }

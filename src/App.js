@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { fetchTopNewsStart } from './actions/index';
 import News from './components/news-list/news-list';
 import { GlobalStyles } from './global-styles';
+import Header from './components/header/header';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStyles />
+      <Header />
       <News />
     </div>
   );

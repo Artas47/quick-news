@@ -11,13 +11,17 @@ export const NewsItem = props => {
   const getImgHeight = () => {
     const width = ref.current.naturalWidth;
     const height = ref.current.naturalHeight;
-    console.log(ref.current.naturalHeight);
     setWidth(width);
     setHeight(height);
   };
 
   return (
-    <Styled.NewsItem height={height} width={width}>
+    <Styled.NewsItem
+      href={props.url}
+      target="_blank"
+      height={height}
+      width={width}
+    >
       <Styled.NewsItemImg ref={ref} src={props.imgUrl} />
       <Styled.NewsItemTitle>{props.title}</Styled.NewsItemTitle>
     </Styled.NewsItem>

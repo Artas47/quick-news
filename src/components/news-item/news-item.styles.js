@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const NewsItem = styled.div(props => ({
+export const NewsItem = styled.a(props => ({
   width: '100%',
   height: '100%',
   position: 'relative',
