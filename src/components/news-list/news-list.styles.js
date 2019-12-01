@@ -19,3 +19,9 @@ export const NewsList = styled.div`
     padding: 1rem 2rem;
   }
 `;
+
+export const NewsNotFoundText = styled.div`
+  display: flex;
+  justify-content: center;
+  font-size: 4rem;
+`;

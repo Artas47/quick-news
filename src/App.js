@@ -4,6 +4,7 @@ import { fetchTopNewsStart } from './actions/index';
 import News from './components/news-list/news-list';
 import { GlobalStyles } from './global-styles';
 import Header from './components/header/header';
+import Filters from './components/filters/filters';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
       <GlobalStyles />
       <Header />
+      <Filters />
       <News />
     </div>
   );

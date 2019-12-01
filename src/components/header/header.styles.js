@@ -7,6 +7,4 @@ export const Header = styled.div`
   padding: 3rem;
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
-  border-bottom: 2px solid #c5c9d1;
 `;

@@ -29,7 +29,7 @@ export const SearchBar = () => {
       />
 
       <Styled.SearchBarBtn type="submit">
-        <SearchIcon type="submit" />
+        <SearchIcon style={{ width: '2.5rem' }} type="submit" />
       </Styled.SearchBarBtn>
     </Styled.Form>
   );

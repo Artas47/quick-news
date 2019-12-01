@@ -15,13 +15,18 @@ export const News = () => {
   if (isLoading) {
     return <Spinner />;
   } else if (!isLoading && !topNews.length) {
-    return <div>News not found</div>;
+    return (
+      <Styled.NewsNotFoundText>
+        News not found
+      </Styled.NewsNotFoundText>
+    );
   }
   return (
     <Styled.NewsList>
       {fileteredNews.map(top => {
         return (
           <NewsItem
+            key={top.title}
             title={top.title}
             imgUrl={top.urlToImage}
             desc={top.description}

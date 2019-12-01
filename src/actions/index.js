@@ -1,6 +1,7 @@
-export const fetchTopNewsStart = () => {
+export const fetchTopNewsStart = query => {
   return {
     type: 'FETCH_TOP_NEWS_START',
+    payload: query,
   };
 };
 
