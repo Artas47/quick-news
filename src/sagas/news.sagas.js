@@ -3,7 +3,6 @@ import { fetchTopNewsSuccess } from '../actions/index';
 import axios from 'axios';
 
 export function* fetchTopNewsAsync({ payload = '' }) {
-  console.log('fetcvh start', payload);
   try {
     const response = yield axios.get(
       `https://newsapi.org/v2/top-headlines?country=us&${payload}apiKey=e5b7f867d3024285b78911aea71aaf23`,

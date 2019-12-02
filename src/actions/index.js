@@ -19,10 +19,13 @@ export const searchChange = searchTerm => {
   };
 };
 
-export const fetchSearchNewsStart = searchTerm => {
+export const fetchSearchNewsStart = (searchTerm, sortBy) => {
   return {
     type: 'FETCH_SEARCH_NEWS_START',
-    payload: searchTerm,
+    payload: {
+      searchTerm,
+      sortBy,
+    },
   };
 };
 
@@ -30,5 +33,12 @@ export const fetchSearchNewsSuccess = response => {
   return {
     type: 'FETCH_SEARCH_NEWS_SUCCESS',
     payload: response,
+  };
+};
+
+export const setActiveSort = sort => {
+  return {
+    type: 'SET_ACTIVE_SORT',
+    payload: sort,
   };
 };

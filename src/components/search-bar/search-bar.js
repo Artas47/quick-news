@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Styled from './search-bar.styles';
 import { ReactComponent as SearchIcon } from '../../assets/search.svg';
 import {
@@ -9,6 +9,9 @@ import {
 
 export const SearchBar = () => {
   const dispatch = useDispatch();
+  const activeSort = useSelector(
+    state => state.activeSort.activeSort,
+  );
   const [searchTerm, setSearchTerm] = useState('');
   const onInputChange = event => {
     setSearchTerm(event.target.value);
@@ -17,7 +20,7 @@ export const SearchBar = () => {
   const onSubmit = event => {
     event.preventDefault();
     if (searchTerm.length) {
-      dispatch(fetchSearchNewsStart(searchTerm));
+      dispatch(fetchSearchNewsStart(searchTerm, activeSort));
     }
   };
   return (

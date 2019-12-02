@@ -3,9 +3,11 @@ import { fetchSearchNewsSuccess } from './../actions/index';
 import axios from 'axios';
 //newsapi.org/v2/everything?q=bitcoin&apiKey=e5b7f867d3024285b78911aea71aaf23
 
-export function* fetchSearchNewsAsync({ payload }) {
+export function* fetchSearchNewsAsync({
+  payload: { searchTerm, sortBy = '' },
+}) {
   const response = yield axios.get(
-    `https://newsapi.org/v2/everything?q=${payload}&language=en&apiKey=e5b7f867d3024285b78911aea71aaf23`,
+    `https://newsapi.org/v2/everything?q=${searchTerm}&sortBy=${sortBy}&language=en&apiKey=e5b7f867d3024285b78911aea71aaf23`,
   );
   yield put(fetchSearchNewsSuccess(response.data));
   console.log(response.data);
