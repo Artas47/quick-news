@@ -14,12 +14,9 @@ export const News = () => {
 
   if (isLoading) {
     return <Spinner />;
-  } else if (!isLoading && !topNews.length) {
-    return (
-      <Styled.NewsNotFoundText>
-        News not found
-      </Styled.NewsNotFoundText>
-    );
+  }
+  if (!isLoading && !topNews.length) {
+    return <Styled.NewsNotFoundText>News not found</Styled.NewsNotFoundText>;
   }
   return (
     <Styled.NewsList>

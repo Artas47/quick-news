@@ -1,25 +1,22 @@
 import React from 'react';
-import * as Styled from './filter-item.styles';
 import { useSelector, useDispatch } from 'react-redux';
+import * as Styled from './filter-item.styles';
 import { setActiveSort } from '../../actions/index';
 
 export const FilterItem = props => {
   const dispatch = useDispatch();
   const searchTerm = useSelector(state => state.searchTerm);
+  const { activeCategory, setActiveCategory, activeSortBy, setActiveSortBy, name, id } = props;
   const onClickHandler = name => {
-    if (props.activeCategory) {
-      props.setActiveCategory([name]);
+    if (activeCategory) {
+      setActiveCategory([name]);
     } else {
-      props.setActiveSortBy([name]);
+      setActiveSortBy([name]);
       dispatch(setActiveSort(name));
     }
   };
-  const isActiveCategory = props.activeCategory
-    ? props.activeCategory[0] === props.name
-    : '';
-  const isActiveSortBy = props.activeSortBy
-    ? props.activeSortBy[0] === props.name
-    : '';
+  const isActiveCategory = activeCategory ? activeCategory[0] === name : '';
+  const isActiveSortBy = activeSortBy ? activeSortBy[0] === name : '';
   return (
     <Styled.FilterItem
       active={
@@ -27,14 +24,13 @@ export const FilterItem = props => {
         (isActiveSortBy && searchTerm.searchTerm.length)
       }
       clickable={
-        (searchTerm.searchTerm.length && props.id === 2) ||
-        (!searchTerm.searchTerm.length && props.id === 1)
+        (searchTerm.searchTerm.length && id === 2) || (!searchTerm.searchTerm.length && id === 1)
           ? false
           : true
       }
-      onClick={() => onClickHandler(props.name)}
+      onClick={() => onClickHandler(name)}
     >
-      {props.name}
+      {name}
     </Styled.FilterItem>
   );
 };

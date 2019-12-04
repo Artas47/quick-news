@@ -1,21 +1,21 @@
 export const fetchTopNewsStart = query => {
   return {
     type: 'FETCH_TOP_NEWS_START',
-    payload: query,
+    payload: query
   };
 };
 
 export const fetchTopNewsSuccess = response => {
   return {
     type: 'FETCH_TOP_NEWS_SUCCESS',
-    payload: response,
+    payload: response
   };
 };
 
 export const searchChange = searchTerm => {
   return {
     type: 'SEARCH_CHANGE',
-    payload: searchTerm,
+    payload: searchTerm
   };
 };
 
@@ -24,21 +24,21 @@ export const fetchSearchNewsStart = (searchTerm, sortBy) => {
     type: 'FETCH_SEARCH_NEWS_START',
     payload: {
       searchTerm,
-      sortBy,
-    },
+      sortBy
+    }
   };
 };
 
 export const fetchSearchNewsSuccess = response => {
   return {
     type: 'FETCH_SEARCH_NEWS_SUCCESS',
-    payload: response,
+    payload: response
   };
 };
 
 export const setActiveSort = sort => {
   return {
     type: 'SET_ACTIVE_SORT',
-    payload: sort,
+    payload: sort
   };
 };

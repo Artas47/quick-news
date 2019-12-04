@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import * as Styled from './filters.styles';
-import FilterItem from '../filter-item/filter-item';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  fetchTopNewsStart,
-  fetchSearchNewsStart,
-} from '../../actions/index';
+import FilterItem from '../filter-item/filter-item';
+import * as Styled from './filters.styles';
+import { fetchTopNewsStart, fetchSearchNewsStart } from '../../actions/index';
 
 const categories = [
   'business',
@@ -14,26 +11,19 @@ const categories = [
   'health',
   'science',
   'sports',
-  'technology',
+  'technology'
 ];
 
 const sortBy = ['relevancy', 'popularity', 'publishedAt'];
 
 export const Filters = () => {
   const dispatch = useDispatch();
-  const searchTerm = useSelector(
-    state => state.searchTerm.searchTerm,
-  );
-  console.log(searchTerm);
+  const searchTerm = useSelector(state => state.searchTerm.searchTerm);
   const [activeCategory, setActiveCategory] = useState(['general']);
   const [activeSortBy, setActiveSortBy] = useState(['popularity']);
   useEffect(() => {
     if (!searchTerm.length) {
-      dispatch(
-        fetchTopNewsStart(
-          `category=${activeCategory[0]}&sortBy=${activeSortBy}&`,
-        ),
-      );
+      dispatch(fetchTopNewsStart(`category=${activeCategory[0]}&sortBy=${activeSortBy}&`));
     } else {
       dispatch(fetchSearchNewsStart(searchTerm, activeSortBy));
     }

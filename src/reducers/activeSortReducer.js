@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  activeSort: 'popularity',
+  activeSort: 'popularity'
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -7,7 +7,7 @@ export default (state = INITIAL_STATE, action) => {
     case 'SET_ACTIVE_SORT':
       return {
         ...state,
-        activeSort: action.payload,
+        activeSort: action.payload
       };
     default:
       return { ...state };

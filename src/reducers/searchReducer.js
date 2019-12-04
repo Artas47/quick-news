@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  searchTerm: '',
+  searchTerm: ''
 };
 
 export default (state = INITIAL_STATE, action) => {

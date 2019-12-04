@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   topNews: [],
-  isLoading: false,
+  isLoading: false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -11,7 +11,7 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         topNews: action.payload.articles,
-        isLoading: false,
+        isLoading: false
       };
     case 'FETCH_SEARCH_NEWS_START':
       return { ...state, isLoading: true };
@@ -19,7 +19,7 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         topNews: action.payload.articles,
-        isLoading: false,
+        isLoading: false
       };
     default:
       return { ...state };

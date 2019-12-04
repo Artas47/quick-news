@@ -10,13 +10,20 @@ export const FilterItem = styled.div`
   cursor: pointer;
   user-select: none;
   transition: all 0.2s;
+  ${props => (props.clickable ? 'color: #ccc; pointer-events: none;' : '')}
   ${props =>
-    props.clickable ? 'color: #ccc; pointer-events: none;' : ''}
-  ${props =>
-    props.active
-      ? 'background-color: #54a0eb; border-color: white;'
-      : ''}
+    props.active ? 'background-color: #54a0eb; border-color: white;' : ''}
     :not(:last-child) {
     margin-right: 1rem;
+  }
+  @media only screen and (max-width: 800px) {
+    padding: 0.3rem 1.5rem;
+    margin: 1rem 1rem 0 1rem;
+    font-size: 1.2rem;
+  }
+  @media only screen and (max-width: 400px) {
+    padding: 0 1rem;
+    margin: 0.7rem 0.7rem 0 0.7rem;
+    font-size: 1rem;
   }
 `;
