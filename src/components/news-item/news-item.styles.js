@@ -6,13 +6,17 @@ export const NewsItem = styled.a(props => ({
   position: 'relative',
   gridRow: `${props.width > 1200 || props.height > 700 ? 'span 2' : ''}`,
   gridColumn: `${props.width > 1200 ? 'span 2' : ''}`,
-  boxShadow: '0 2rem 2rem rgb(0,0,0,0.6)'
+  boxShadow: '0 2rem 2rem rgb(0,0,0,0.6)',
+  alignSelf: 'start',
+  justifySelf: 'start'
 }));
 
 export const NewsItemImg = styled.img`
   width: 100%;
   height: 100%;
   filter: brightness(0.4);
+  align-self: 'start';
+  justify-self: 'start';
 `;
 
 export const NewsItemTitle = styled.p`

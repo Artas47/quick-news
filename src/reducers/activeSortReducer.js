@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-  activeSort: 'popularity'
+  activeSort: 'popularity',
+  activeCategory: 'general'
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -8,6 +9,11 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         activeSort: action.payload
+      };
+    case 'ACTIVE_CATEGORY_CHANGE':
+      return {
+        ...state,
+        activeCategory: action.payload
       };
     default:
       return { ...state };

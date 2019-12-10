@@ -22,7 +22,7 @@ export const NewsItem = props => {
 
   return (
     <Styled.NewsItem href={url} target="_blank" height={imgHeight} width={imgWidth}>
-      <Styled.NewsItemImg ref={ref} src={imgUrl} />
+      <Styled.NewsItemImg ref={ref} src={imgUrl} alt={title} />
       <Styled.NewsItemTitle>{title}</Styled.NewsItemTitle>
     </Styled.NewsItem>
   );

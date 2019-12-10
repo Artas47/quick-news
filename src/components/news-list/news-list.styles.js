@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const NewsList = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
-  grid-auto-rows: repeat(auto-fit, minmax(40rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(43rem, 1fr));
+  grid-auto-rows: 25rem;
   grid-auto-flow: dense;
   grid-gap: 3rem;
   padding: 1rem 4rem;

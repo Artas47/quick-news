@@ -16,7 +16,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   body {
     font-family: 'Raleway', sans-serif;
-    
+    overflow-y: scroll;
     background-color: #dee0e0;
   }
 `;

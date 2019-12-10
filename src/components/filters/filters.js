@@ -19,15 +19,22 @@ const sortBy = ['relevancy', 'popularity', 'publishedAt'];
 export const Filters = () => {
   const dispatch = useDispatch();
   const searchTerm = useSelector(state => state.searchTerm.searchTerm);
+  const activeLanguage = useSelector(state => state.language.activeLanguage);
   const [activeCategory, setActiveCategory] = useState(['general']);
   const [activeSortBy, setActiveSortBy] = useState(['popularity']);
   useEffect(() => {
     if (!searchTerm.length) {
-      dispatch(fetchTopNewsStart(`category=${activeCategory[0]}&sortBy=${activeSortBy}&`));
+      dispatch(
+        fetchTopNewsStart(
+          `?country=${activeLanguage === 'en' ? 'us' : 'pl'}&category=${
+            activeCategory[0]
+          }&sortBy=${activeSortBy}&`
+        )
+      );
     } else {
-      dispatch(fetchSearchNewsStart(searchTerm, activeSortBy));
+      dispatch(fetchSearchNewsStart(searchTerm, activeSortBy, activeLanguage));
     }
-  }, [activeCategory, activeSortBy, dispatch]);
+  }, [activeCategory, activeSortBy, dispatch, activeLanguage]);
   return (
     <Styled.Filters>
       <Styled.Categories>

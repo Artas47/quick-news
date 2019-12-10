@@ -2,9 +2,9 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 import { fetchSearchNewsSuccess } from '../actions/index';
 
-export function* fetchSearchNewsAsync({ payload: { searchTerm, sortBy = '' } }) {
+export function* fetchSearchNewsAsync({ payload: { searchTerm, sortBy = '', language } }) {
   const response = yield axios.get(
-    `https://newsapi.org/v2/everything?q=${searchTerm}&sortBy=${sortBy}&language=en&apiKey=e5b7f867d3024285b78911aea71aaf23`
+    `https://newsapi.org/v2/everything?q=${searchTerm}&sortBy=${sortBy}&language=${language}&apiKey=e5b7f867d3024285b78911aea71aaf23`
   );
   yield put(fetchSearchNewsSuccess(response.data));
 }

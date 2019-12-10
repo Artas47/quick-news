@@ -7,6 +7,7 @@ import { searchChange, fetchSearchNewsStart } from '../../actions/index';
 export const SearchBar = () => {
   const dispatch = useDispatch();
   const activeSort = useSelector(state => state.activeSort.activeSort);
+  const activeLanguage = useSelector(state => state.language.activeLanguage);
   const [searchTerm, setSearchTerm] = useState('');
   const onInputChange = event => {
     setSearchTerm(event.target.value);
@@ -15,7 +16,7 @@ export const SearchBar = () => {
   const onSubmit = event => {
     event.preventDefault();
     if (searchTerm.length) {
-      dispatch(fetchSearchNewsStart(searchTerm, activeSort));
+      dispatch(fetchSearchNewsStart(searchTerm, activeSort, activeLanguage));
     }
   };
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as Styled from './filter-item.styles';
-import { setActiveSort } from '../../actions/index';
+import { setActiveSort, activeCategoryChange } from '../../actions/index';
 
 export const FilterItem = props => {
   const dispatch = useDispatch();
@@ -10,7 +10,9 @@ export const FilterItem = props => {
   const onClickHandler = name => {
     if (activeCategory) {
       setActiveCategory([name]);
+      dispatch(activeCategoryChange(name));
     } else {
+      dispatch(activeCategoryChange(name));
       setActiveSortBy([name]);
       dispatch(setActiveSort(name));
     }
