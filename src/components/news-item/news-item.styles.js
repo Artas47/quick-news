@@ -4,12 +4,13 @@ export const NewsItem = styled.a(props => ({
   width: '100%',
   height: '100%',
   position: 'relative',
-  gridRow: `${props.width > 1200 || props.height > 700 ? 'span 2' : ''}`,
+  gridRow: `${props.width > 1200 ? 'span 2' : ''}`,
   gridColumn: `${props.width > 1200 ? 'span 2' : ''}`,
   boxShadow: '0 2rem 2rem rgb(0,0,0,0.6)',
   alignSelf: 'start',
   justifySelf: 'start',
-  visibility: `${!props.visibility ? 'visible' : 'hidden'}`
+  visibility: `${!props.visibility ? 'visible' : 'hidden'}`,
+  transition: 'all 1s'
 }));
 
 export const NewsItemImg = styled.img`
