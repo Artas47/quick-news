@@ -15,7 +15,7 @@ export const NewsItem = props => {
       setImgWidth(width);
       setImgHeight(height);
     } catch (error) {
-      console.log('refs', error);
+      console.log(error);
     }
   };
   useEffect(() => {
@@ -26,13 +26,30 @@ export const NewsItem = props => {
     setIsLoaded('loaded');
   };
 
+  const handleImageError = () => {
+    setIsLoaded('error');
+  };
+
   return (
-    <Styled.NewsItem href={url} target="_blank" height={imgHeight} width={imgWidth}>
+    <Styled.NewsItem
+      href={url}
+      background={isLoaded === 'error'}
+      target="_blank"
+      height={imgHeight}
+      width={imgWidth}
+    >
       <Styled.ImageNotLoaded>{isLoaded === 'loading' ? <Spinner /> : ''}</Styled.ImageNotLoaded>
-      <Styled.ImageAndTitleBox visibility={isLoaded === 'loaded'}>
-        <Styled.NewsItemImg onLoad={() => handleImageLoaded()} ref={ref} src={imgUrl} alt={title} />
-        <Styled.NewsItemTitle>{title}</Styled.NewsItemTitle>
-      </Styled.ImageAndTitleBox>
+      <Styled.NewsItemImg
+        visibility={isLoaded === 'loaded'}
+        onLoad={() => handleImageLoaded()}
+        onError={() => handleImageError()}
+        ref={ref}
+        src={imgUrl}
+        alt={title}
+      />
+      <Styled.NewsItemTitle visibility={isLoaded === 'error' || isLoaded === 'loaded'}>
+        {title}
+      </Styled.NewsItemTitle>
     </Styled.NewsItem>
   );
 };

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Background from '../../assets/img-not-found.png';
 
 export const NewsItem = styled.a(props => ({
   width: '100%',
@@ -10,13 +11,17 @@ export const NewsItem = styled.a(props => ({
   alignSelf: 'start',
   justifySelf: 'start',
   visibility: `${!props.visibility ? 'visible' : 'hidden'}`,
-  transition: 'all 1s'
+  transition: 'all 1s',
+  backgroundImage: `${props.background ? `url(${Background})` : ''}`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center'
 }));
 
 export const NewsItemImg = styled.img`
   width: 100%;
   height: 100%;
   filter: brightness(0.4);
+  visibility: ${props => (props.visibility ? 'visible' : 'hidden')};
 `;
 
 export const NewsItemTitle = styled.p`
@@ -25,6 +30,7 @@ export const NewsItemTitle = styled.p`
   left: 1.5rem;
   color: white;
   font-size: 3rem;
+  visibility: ${props => (props.visibility ? 'visible' : 'hidden')};
   @media only screen and (max-width: 650px) {
     font-size: 2.3rem;
   }
@@ -43,10 +49,4 @@ export const ImageNotLoaded = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-`;
-
-export const ImageAndTitleBox = styled.div`
-  width: 100%;
-  height: 100%;
-  visibility: ${props => (props.visibility ? 'visible' : 'hidden')};
 `;

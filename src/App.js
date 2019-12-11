@@ -21,7 +21,6 @@ function App() {
         )
       );
     } else {
-      console.log('fsd');
       dispatch(fetchSearchNewsStart(searchTerm, activeSort, activeLanguage));
     }
   }, [dispatch, activeLanguage, activeCategory, activeSort]);
