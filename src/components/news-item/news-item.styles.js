@@ -1,21 +1,26 @@
 import styled from 'styled-components';
 import Background from '../../assets/img-not-found.png';
 
-export const NewsItem = styled.a(props => ({
-  width: '100%',
-  height: '100%',
-  position: 'relative',
-  gridRow: `${props.width > 1200 ? 'span 2' : ''}`,
-  gridColumn: `${props.width > 1200 ? 'span 2' : ''}`,
-  boxShadow: '0 2rem 2rem rgb(0,0,0,0.6)',
-  alignSelf: 'start',
-  justifySelf: 'start',
-  visibility: `${!props.visibility ? 'visible' : 'hidden'}`,
-  transition: 'all 1s',
-  backgroundImage: `${props.background ? `url(${Background})` : ''}`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center'
-}));
+export const NewsItem = styled.a`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  grid-row: ${props => (props.width > 1200 ? 'span 2' : '')};
+  grid-column: ${props => (props.width > 1200 ? 'span 2' : '')};
+  box-shadow: 0 2rem 2rem rgb(0, 0, 0, 0.6);
+  align-self: start;
+  justify-self: start;
+  visibility: ${props => (!props.visibility ? 'visible' : 'hidden')};
+  transition: all 1s;
+  background-image: ${props => (props.background ? `url(${Background})` : '')};
+  background-size: cover;
+  background-position: center;
+
+  @media only screen and (max-width: 900px) {
+    height: ${props => (props.height === 0 ? '35rem' : '100%')};
+    box-shadow: 0 2rem 2rem rgb(0, 0, 0, 0.2);
+  }
+`;
 
 export const NewsItemImg = styled.img`
   width: 100%;

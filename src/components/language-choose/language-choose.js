@@ -24,6 +24,7 @@ const LanguageChoose = () => {
       {Object.keys(languages).map(lang => {
         return (
           <Styled.Language
+            key={lang}
             onClick={() => onClickChange(languages[lang].language)}
             active={activeLanguage === languages[lang].language}
           >
