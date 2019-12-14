@@ -8,7 +8,7 @@ export const NewsItem = props => {
   const [imgWidth, setImgWidth] = useState(0);
   const [imgHeight, setImgHeight] = useState(0);
   const [isLoaded, setIsLoaded] = useState('loading');
-  const [isAnimation, setIsAnimation] = useState(false);
+  const [isAnimationLoading, setIsAnimationLoading] = useState(false);
   const { url, imgUrl, title } = props;
   const getImgHeightAndWidth = () => {
     try {
@@ -26,7 +26,7 @@ export const NewsItem = props => {
 
   const handleImageLoaded = () => {
     setIsLoaded('loaded');
-    setIsAnimation(true);
+    setIsAnimationLoading(true);
   };
 
   const handleImageError = () => {
@@ -42,7 +42,7 @@ export const NewsItem = props => {
       width={imgWidth}
     >
       <Styled.ImageNotLoaded>{isLoaded === 'loading' ? <Spinner /> : ''}</Styled.ImageNotLoaded>
-      <Fade in={isAnimation}>
+      <Fade in={isAnimationLoading}>
         <Styled.NewsItemImg
           visibility={isLoaded === 'loaded'}
           onLoad={() => handleImageLoaded()}
