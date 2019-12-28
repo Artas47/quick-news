@@ -6,6 +6,7 @@ import * as Styled from './header.styles';
 export const Header = () => {
   return (
     <Styled.Header>
+      <Styled.LogoAndName onClick={() => window.scrollTo(0, 0)} />
       <SearchBar />
       <LanguageChoose />
     </Styled.Header>

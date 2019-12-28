@@ -20,11 +20,12 @@ export const NewsItem = props => {
       console.log(error);
     }
   };
-  useEffect(() => {
-    ref.current.addEventListener('load', getImgHeightAndWidth);
-  }, []);
+  // useEffect(() => {
+  //   ref.current.addEventListener('load', getImgHeightAndWidth);
+  // }, []);
 
   const handleImageLoaded = () => {
+    getImgHeightAndWidth();
     setIsLoaded('loaded');
     setIsAnimationLoading(true);
   };

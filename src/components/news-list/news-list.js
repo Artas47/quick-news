@@ -23,9 +23,8 @@ export const News = () => {
     <Styled.NewsList>
       {fileteredNews.map(top => {
         return (
-          <LazyLoad height={200}>
+          <LazyLoad key={top.title} height={200}>
             <NewsItem
-              key={top.title}
               title={top.title}
               imgUrl={top.urlToImage}
               desc={top.description}
