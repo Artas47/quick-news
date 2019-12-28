@@ -5,6 +5,9 @@ export const Form = styled.form`
   width: 40rem;
   justify-content: space-between;
   align-items: center;
+  @media only screen and (max-width: 850px) {
+    margin-bottom: -2.5rem;
+  }
 `;
 
 export const SearchBar = styled.input`

@@ -11,11 +11,22 @@ export const Header = styled.div`
   justify-content: center;
   position: sticky;
   top: 0;
+  @media only screen and (max-width: 850px) {
+    height: 14rem;
+  }
 `;
 
 export const LogoAndName = styled(Logo)`
   position: absolute;
+  cursor: pointer;
+  color: red;
+  fill: #757474;
   top: 50%;
   left: 3rem;
   transform: translate(0, -50%);
+  @media only screen and (max-width: 850px) {
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 `;
