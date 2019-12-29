@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Footer = styled.footer`
-  position: sticky;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 5vh;
@@ -11,4 +11,8 @@ export const Footer = styled.footer`
   align-items: center;
   color: white;
   font-size: 1.5rem;
+
+  @media only screen and (max-width: 900px) {
+    font-size: 1rem;
+  }
 `;

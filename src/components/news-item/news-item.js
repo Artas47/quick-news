@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import * as Styled from './news-item.styles';
 import Spinner from '../spinner/spinner';
 import Fade from '../fade-animation/fade';
