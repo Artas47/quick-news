@@ -16,8 +16,12 @@ export const News = () => {
   if (isLoading) {
     return <Spinner />;
   }
-  if (!isLoading && !topNews.length) {
-    return <Styled.NewsNotFoundText>News not found</Styled.NewsNotFoundText>;
+  if (!isLoading && !fileteredNews.length) {
+    return (
+      <div style={{ position: 'relative', minHeight: '100%' }}>
+        <Styled.NewsNotFoundText>News not found</Styled.NewsNotFoundText>
+      </div>
+    );
   }
   return (
     <Styled.NewsList>

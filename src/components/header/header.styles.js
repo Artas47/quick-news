@@ -11,6 +11,7 @@ export const Header = styled.div`
   justify-content: center;
   position: sticky;
   top: 0;
+  border-bottom: 2px solid #c5c9d1;
   @media only screen and (max-width: 850px) {
     height: 14rem;
   }

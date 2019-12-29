@@ -5,6 +5,7 @@ import News from './components/news-list/news-list';
 import { GlobalStyles } from './global-styles';
 import Header from './components/header/header';
 import Filters from './components/filters/filters';
+import Footer from './components/footer/footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -25,11 +26,12 @@ function App() {
     }
   }, [dispatch, activeLanguage, activeCategory, activeSort]);
   return (
-    <div className="App">
+    <div style={{ minHeight: '100vh', position: 'relative' }} className="App">
       <GlobalStyles />
       <Header />
       <Filters />
       <News />
+      <Footer />
     </div>
   );
 }

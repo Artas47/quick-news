@@ -15,7 +15,6 @@ export const NewsItem = styled.a`
   background-image: ${props => (props.background ? `url(${Background})` : '')};
   background-size: cover;
   background-position: center;
-
   @media only screen and (max-width: 900px) {
     height: ${props => (props.height === 0 ? '35rem' : '100%')};
     box-shadow: 0 2rem 2rem rgb(0, 0, 0, 0.2);

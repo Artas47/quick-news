@@ -8,9 +8,8 @@ export const Filters = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #b5bcbd;
-  margin-bottom: 2rem;
   border-bottom: 2px solid #c5c9d1;
-  border-top: 2px solid #c5c9d1;
+
   @media only screen and (max-width: 800px) {
     padding: 7rem 0;
   }
