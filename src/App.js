@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTopNewsStart, fetchSearchNewsStart } from './actions/index';
+import { fetchNewsStart, fetchSearchNewsStart } from './actions/index';
 import News from './components/news-list/news-list';
 import { GlobalStyles } from './global-styles';
 import Header from './components/header/header';
@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     if (!searchTerm.length) {
       dispatch(
-        fetchTopNewsStart(
+        fetchNewsStart(
           `?country=${activeLanguage === 'en' ? 'us' : 'pl'}&category=${activeCategory}&`,
           activeSort
         )

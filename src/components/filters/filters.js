@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FilterItem from '../filter-item/filter-item';
 import * as Styled from './filters.styles';
-import { fetchTopNewsStart, fetchSearchNewsStart } from '../../actions/index';
+import { fetchNewsStart, fetchSearchNewsStart } from '../../actions/index';
 
 const categories = [
   'business',
@@ -25,7 +25,7 @@ export const Filters = () => {
   useEffect(() => {
     if (!searchTerm.length) {
       dispatch(
-        fetchTopNewsStart(
+        fetchNewsStart(
           `?country=${activeLanguage === 'en' ? 'us' : 'pl'}&category=${
             activeCategory[0]
           }&sortBy=${activeSortBy}&`

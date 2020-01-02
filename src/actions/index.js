@@ -1,27 +1,38 @@
-export const fetchTopNewsStart = (query, activeCategory) => {
+import {
+  FETCH_NEWS_START,
+  FETCH_SEARCH_NEWS_SUCCESS,
+  FETCH_NEWS_SUCCESS,
+  FETCH_SEARCH_NEWS_START,
+  SEARCH_CHANGE,
+  LANGUAGE_CHANGE,
+  SET_ACTIVE_SORT,
+  ACTIVE_CATEGORY_CHANGE
+} from './types';
+
+export const fetchNewsStart = query => {
   return {
-    type: 'FETCH_TOP_NEWS_START',
+    type: FETCH_NEWS_START,
     payload: query
   };
 };
 
-export const fetchTopNewsSuccess = response => {
+export const fetchNewsSuccess = response => {
   return {
-    type: 'FETCH_TOP_NEWS_SUCCESS',
+    type: FETCH_NEWS_SUCCESS,
     payload: response
   };
 };
 
 export const searchChange = searchTerm => {
   return {
-    type: 'SEARCH_CHANGE',
+    type: SEARCH_CHANGE,
     payload: searchTerm
   };
 };
 
 export const fetchSearchNewsStart = (searchTerm, sortBy, language) => {
   return {
-    type: 'FETCH_SEARCH_NEWS_START',
+    type: FETCH_SEARCH_NEWS_START,
     payload: {
       searchTerm,
       sortBy,
@@ -32,28 +43,28 @@ export const fetchSearchNewsStart = (searchTerm, sortBy, language) => {
 
 export const fetchSearchNewsSuccess = response => {
   return {
-    type: 'FETCH_SEARCH_NEWS_SUCCESS',
+    type: FETCH_SEARCH_NEWS_SUCCESS,
     payload: response
   };
 };
 
 export const changeLanguage = language => {
   return {
-    type: 'LANGUAGE_CHANGE',
+    type: LANGUAGE_CHANGE,
     payload: language
   };
 };
 
 export const setActiveSort = sort => {
   return {
-    type: 'SET_ACTIVE_SORT',
+    type: SET_ACTIVE_SORT,
     payload: sort
   };
 };
 
 export const activeCategoryChange = category => {
   return {
-    type: 'ACTIVE_CATEGORY_CHANGE',
+    type: ACTIVE_CATEGORY_CHANGE,
     payload: category
   };
 };

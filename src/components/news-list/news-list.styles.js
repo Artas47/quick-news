@@ -6,7 +6,7 @@ export const NewsList = styled.div`
   grid-auto-rows: 28rem;
   grid-auto-flow: dense;
   grid-gap: 3rem;
-  padding: 2rem 4rem;
+  padding: 2rem 2rem;
   margin-bottom: 5rem;
 
   @media only screen and (max-width: 900px) {

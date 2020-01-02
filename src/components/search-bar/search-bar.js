@@ -22,7 +22,6 @@ export const SearchBar = () => {
   return (
     <Styled.Form onSubmit={onSubmit}>
       <Styled.SearchBar value={searchTerm} onChange={onInputChange} placeholder="Search for news" />
-
       <Styled.SearchBarBtn type="submit">
         <SearchIcon style={{ width: '2.5rem' }} type="submit" />
       </Styled.SearchBarBtn>

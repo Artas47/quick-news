@@ -1,23 +1,24 @@
 import { call, put, all, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
-import { fetchTopNewsSuccess } from '../actions/index';
+import { FETCH_NEWS_START } from '../actions/types';
+import { fetchNewsSuccess } from '../actions/index';
 
-export function* fetchTopNewsAsync({ payload }) {
+export function* fetchNewsAsync({ payload }) {
   try {
     const response = yield axios.get(
       `https://newsapi.org/v2/top-headlines${payload}apiKey=e5b7f867d3024285b78911aea71aaf23`
     );
     const topNews = yield response.data;
-    yield put(fetchTopNewsSuccess(topNews));
+    yield put(fetchNewsSuccess(topNews));
   } catch (error) {
     console.log(error);
   }
 }
 
-export function* fetchTopNewsStart() {
-  yield takeLatest('FETCH_TOP_NEWS_START', fetchTopNewsAsync);
+export function* fetchNewsStart() {
+  yield takeLatest(FETCH_NEWS_START, fetchNewsAsync);
 }
 
 export function* newsSagas() {
-  yield all([call(fetchTopNewsStart)]);
+  yield all([call(fetchNewsStart)]);
 }
