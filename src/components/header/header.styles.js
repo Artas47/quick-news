@@ -5,13 +5,14 @@ export const Header = styled.div`
   width: 100%;
   z-index: 999;
   height: 10rem;
-  background-color: white;
+  background-color: ${props => props.theme.headerBg};
   padding: 3rem;
   display: flex;
   justify-content: center;
   position: sticky;
   top: 0;
-  border-bottom: 2px solid #c5c9d1;
+  transition: all 1s;
+  border-bottom: 2px solid ${props => props.theme.headerBorderBottomColor};
   @media only screen and (max-width: 850px) {
     height: 14rem;
   }
@@ -20,8 +21,7 @@ export const Header = styled.div`
 export const LogoAndName = styled(Logo)`
   position: absolute;
   cursor: pointer;
-  color: red;
-  fill: #757474;
+  fill: ${props => props.theme.headerLogoColor};
   top: 50%;
   left: 3rem;
   transform: translate(0, -50%);

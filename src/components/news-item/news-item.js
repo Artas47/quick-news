@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import * as Styled from './news-item.styles';
 import Spinner from '../spinner/spinner';
 import Fade from '../fade-animation/fade';
@@ -20,12 +20,11 @@ export const NewsItem = props => {
       console.log(error);
     }
   };
-  // useEffect(() => {
-  //   ref.current.addEventListener('load', getImgHeightAndWidth);
-  // }, []);
+  useEffect(() => {
+    ref.current.addEventListener('load', getImgHeightAndWidth);
+  }, []);
 
   const handleImageLoaded = () => {
-    getImgHeightAndWidth();
     setIsLoaded('loaded');
     setIsAnimationLoading(true);
   };

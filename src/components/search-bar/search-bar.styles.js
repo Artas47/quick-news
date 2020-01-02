@@ -5,6 +5,7 @@ export const Form = styled.form`
   width: 40rem;
   justify-content: space-between;
   align-items: center;
+
   @media only screen and (max-width: 850px) {
     margin-bottom: -2.5rem;
   }
@@ -18,7 +19,9 @@ export const SearchBar = styled.input`
   border-bottom: 2px solid darkgrey;
   position: relative;
   font-size: 2rem;
-  transition: all 0.2s;
+  transition: border-bottom-color 0.2s, background-color 1s;
+  background-color: ${props => props.theme.headerBg}
+  
   :focus {
     outline: none;
     border-bottom-color: #4c8ce0;
@@ -31,8 +34,9 @@ export const SearchBar = styled.input`
 
 export const SearchBarBtn = styled.button`
   border: none;
-  background-color: white;
+  background-color: ${props => props.theme.headerBg}
   margin-left: -5rem;
+  transition: all 1s;
   z-index: 1000;
   fill: darkgray;
   cursor: pointer;

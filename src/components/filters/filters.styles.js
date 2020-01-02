@@ -7,8 +7,9 @@ export const Filters = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #b5bcbd;
-  border-bottom: 2px solid #c5c9d1;
+  transition: all 1s;
+  background-color: ${props => props.theme.filtersBg};
+  border-bottom: 2px solid ${props => props.theme.headerBorderBottomColor};
 
   @media only screen and (max-width: 800px) {
     padding: 7rem 0;

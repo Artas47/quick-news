@@ -17,6 +17,8 @@ export const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Raleway', sans-serif;
     overflow-y: scroll;
-    background-color: #dee0e0;
+    background-color: ${props => props.theme.mainContentBg};
+    transition: all 1s;
+    /*#454545 for dark mode*/
   }
 `;

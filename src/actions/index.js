@@ -6,7 +6,8 @@ import {
   SEARCH_CHANGE,
   LANGUAGE_CHANGE,
   SET_ACTIVE_SORT,
-  ACTIVE_CATEGORY_CHANGE
+  ACTIVE_CATEGORY_CHANGE,
+  THEME_CHANGE
 } from './types';
 
 export const fetchNewsStart = query => {
@@ -66,5 +67,11 @@ export const activeCategoryChange = category => {
   return {
     type: ACTIVE_CATEGORY_CHANGE,
     payload: category
+  };
+};
+
+export const themeChange = () => {
+  return {
+    type: THEME_CHANGE
   };
 };

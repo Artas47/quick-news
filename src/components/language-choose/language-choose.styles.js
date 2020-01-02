@@ -22,8 +22,10 @@ export const Language = styled.p`
   cursor: pointer;
   height: 2rem;
   transition: all 1s;
+  color: ${props => props.theme.languageChooseColor};
   :not(:last-child) {
     margin-right: 2rem;
   }
-  ${props => (props.active ? 'border-bottom: 1px solid black' : '')}
+  ${props =>
+    props.active ? `border-bottom: 1px solid ${props.theme.languageChooseBorderColor}` : ''}
 `;

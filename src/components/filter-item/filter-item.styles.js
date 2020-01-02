@@ -9,8 +9,12 @@ export const FilterItem = styled.div`
   font-size: 1.5rem;
   cursor: pointer;
   user-select: none;
+  color: ${props => props.theme.filterItemTextColor};
   transition: all 0.2s;
-  ${props => (props.clickable ? 'color: #ccc; pointer-events: none;' : '')}
+  ${props =>
+    props.clickable
+      ? `color: ${props.theme.filterItemTextColorDisabled}; pointer-events: none;`
+      : ''}
   ${props =>
     props.active ? 'background-color: #54a0eb; border-color: white;' : ''}
     :not(:last-child) {
