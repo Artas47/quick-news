@@ -8,9 +8,12 @@ export default {
     headerBorderBottomColor: '#7f8082',
     headerLogoColor: '#9e9e9e',
     filtersBg: '#636363',
-    filterItemTextColor: '#d9d9d9',
+    filterItemTextColor: '#e8e8e8',
     filterItemTextColorDisabled: '#7a7a7a',
-    footerBg: '#5e5e5e'
+    footerBg: '#5e5e5e',
+    themeToggleButtonBg: '#5e5e5e',
+    newsItemTextColor: '#cccccc',
+    searchInputTextColor: '#fff'
   },
   light: {
     filtersBg: '#b5bcbd',
@@ -21,6 +24,8 @@ export default {
     filterItemTextColorDisabled: '#d9d9d9',
     languageChooseBorderColor: '#000',
     headerBorderBottomColor: '#c5c9d1',
-    headerLogoColor: '#9e9e9e'
+    headerLogoColor: '#9e9e9e',
+    themeToggleButtonBg: '#454545',
+    newsItemTextColor: '#fff'
   }
 };

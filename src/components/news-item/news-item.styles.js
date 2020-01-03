@@ -16,7 +16,7 @@ export const NewsItem = styled.a`
   background-size: cover;
   background-position: center;
   @media only screen and (max-width: 900px) {
-    height: ${props => (props.height === 0 ? '35rem' : '100%')};
+    height: ${props => (props.height === 0 ? '25rem' : '100%')};
     box-shadow: 0 2rem 2rem rgb(0, 0, 0, 0.2);
   }
 `;
@@ -32,7 +32,7 @@ export const NewsItemTitle = styled.p`
   position: absolute;
   bottom: 1.5rem;
   left: 1.5rem;
-  color: white;
+  color: ${props => props.theme.newsItemTextColor};
   font-size: 3rem;
   visibility: ${props => (props.visibility ? 'visible' : 'hidden')};
   @media only screen and (max-width: 650px) {

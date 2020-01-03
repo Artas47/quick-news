@@ -18,6 +18,7 @@ export const SearchBar = styled.input`
   border: none;
   border-bottom: 2px solid darkgrey;
   position: relative;
+  color: ${props => props.theme.searchInputTextColor};
   font-size: 2rem;
   transition: border-bottom-color 0.2s, background-color 1s;
   background-color: ${props => props.theme.headerBg}

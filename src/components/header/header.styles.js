@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { ReactComponent as Logo } from '../../assets/logo-name.svg';
 
 export const Header = styled.div`
+  position: sticky;
   width: 100%;
   z-index: 999;
   height: 10rem;
@@ -9,7 +10,6 @@ export const Header = styled.div`
   padding: 3rem;
   display: flex;
   justify-content: center;
-  position: sticky;
   top: 0;
   transition: all 1s;
   border-bottom: 2px solid ${props => props.theme.headerBorderBottomColor};
