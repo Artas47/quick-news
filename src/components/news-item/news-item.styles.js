@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import Background from '../../assets/img-not-found.png';
+import { ReactComponent as BookmarkSVG } from '../../assets/bookmarks.svg';
 
-export const NewsItem = styled.a`
+export const NewsItem = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
@@ -22,6 +23,7 @@ export const NewsItem = styled.a`
 `;
 
 export const NewsItemImg = styled.img`
+  position: relative;
   width: 100%;
   height: 100%;
   filter: brightness(0.4);
@@ -54,3 +56,16 @@ export const ImageNotLoaded = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
+
+export const Bookmark = styled(BookmarkSVG)`
+  position: absolute;
+  width: 3rem;
+  top: 1rem;
+  right: 1.2rem;
+  z-index: 998;
+  fill: #8a8a8a;
+  pointer-events: fill;
+  cursor: default;
+`;
+//#d9d073
+//#8a8a8a

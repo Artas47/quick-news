@@ -7,7 +7,8 @@ import {
   LANGUAGE_CHANGE,
   SET_ACTIVE_SORT,
   ACTIVE_CATEGORY_CHANGE,
-  THEME_CHANGE
+  THEME_CHANGE,
+  ADD_ITEM_TO_STORE
 } from './types';
 
 export const fetchNewsStart = query => {
@@ -73,5 +74,12 @@ export const activeCategoryChange = category => {
 export const themeChange = () => {
   return {
     type: THEME_CHANGE
+  };
+};
+
+export const addItemToStore = item => {
+  return {
+    type: ADD_ITEM_TO_STORE,
+    payload: item
   };
 };

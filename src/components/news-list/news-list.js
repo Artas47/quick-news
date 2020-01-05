@@ -29,6 +29,7 @@ export const News = () => {
         return (
           <LazyLoad key={top.title} height={200}>
             <NewsItem
+              wholeItem={top}
               title={top.title}
               imgUrl={top.urlToImage}
               desc={top.description}

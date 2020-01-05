@@ -1,10 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Styled from './news-item.styles';
 import Spinner from '../spinner/spinner';
+import { addItemToStore } from '../../actions/index';
 import Fade from '../fade-animation/fade';
 
 export const NewsItem = props => {
   const ref = useRef();
+  const dispatch = useDispatch();
   const [imgWidth, setImgWidth] = useState(0);
   const [imgHeight, setImgHeight] = useState(0);
   const [isLoaded, setIsLoaded] = useState('loading');
@@ -41,6 +44,7 @@ export const NewsItem = props => {
       height={imgHeight}
       width={imgWidth}
     >
+      <Styled.Bookmark onClick={() => dispatch(addItemToStore(props.wholeItem))} />
       <Styled.ImageNotLoaded>{isLoaded === 'loading' ? <Spinner /> : ''}</Styled.ImageNotLoaded>
       <Fade in={isAnimationLoading}>
         <Styled.NewsItemImg
