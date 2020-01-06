@@ -8,7 +8,8 @@ import {
   SET_ACTIVE_SORT,
   ACTIVE_CATEGORY_CHANGE,
   THEME_CHANGE,
-  ADD_ITEM_TO_STORE
+  ADD_ITEM_TO_STORE,
+  DELETE_ITEM_FROM_STORE
 } from './types';
 
 export const fetchNewsStart = query => {
@@ -80,6 +81,13 @@ export const themeChange = () => {
 export const addItemToStore = item => {
   return {
     type: ADD_ITEM_TO_STORE,
+    payload: item
+  };
+};
+
+export const deleteItemFromStore = item => {
+  return {
+    type: DELETE_ITEM_FROM_STORE,
     payload: item
   };
 };

@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Styled from './news-item.styles';
 import Spinner from '../spinner/spinner';
-import { addItemToStore } from '../../actions/index';
+import { addItemToStore, deleteItemFromStore } from '../../actions/index';
 import Fade from '../fade-animation/fade';
 
 export const NewsItem = props => {
@@ -36,29 +36,40 @@ export const NewsItem = props => {
     setIsLoaded('error');
   };
 
+  const store = useSelector(state => state.itemsStore.store);
+
+  const isMarked = () => {
+    return store.find(item => item.title === props.wholeItem.title);
+  };
+
   return (
-    <Styled.NewsItem
-      href={url}
-      background={isLoaded === 'error'}
-      target="_blank"
-      height={imgHeight}
-      width={imgWidth}
-    >
-      <Styled.Bookmark onClick={() => dispatch(addItemToStore(props.wholeItem))} />
-      <Styled.ImageNotLoaded>{isLoaded === 'loading' ? <Spinner /> : ''}</Styled.ImageNotLoaded>
-      <Fade in={isAnimationLoading}>
-        <Styled.NewsItemImg
-          visibility={isLoaded === 'loaded'}
-          onLoad={() => handleImageLoaded()}
-          onError={() => handleImageError()}
-          ref={ref}
-          src={imgUrl}
-          alt={title}
-        />
-      </Fade>
-      <Styled.NewsItemTitle visibility={isLoaded === 'error' || isLoaded === 'loaded'}>
-        {title}
-      </Styled.NewsItemTitle>
+    <Styled.NewsItem background={isLoaded === 'error'} height={imgHeight} width={imgWidth}>
+      <Styled.Bookmark
+        isMarked={isMarked()}
+        onClick={() => {
+          if (isMarked()) {
+            dispatch(deleteItemFromStore(props.wholeItem));
+          } else {
+            dispatch(addItemToStore(props.wholeItem));
+          }
+        }}
+      />
+      <a href={url} rel="noopener noreferrer" target="_blank">
+        <Styled.ImageNotLoaded>{isLoaded === 'loading' ? <Spinner /> : ''}</Styled.ImageNotLoaded>
+        <Fade in={isAnimationLoading}>
+          <Styled.NewsItemImg
+            visibility={isLoaded === 'loaded'}
+            onLoad={() => handleImageLoaded()}
+            onError={() => handleImageError()}
+            ref={ref}
+            src={imgUrl}
+            alt={title}
+          />
+        </Fade>
+        <Styled.NewsItemTitle visibility={isLoaded === 'error' || isLoaded === 'loaded'}>
+          {title}
+        </Styled.NewsItemTitle>
+      </a>
     </Styled.NewsItem>
   );
 };

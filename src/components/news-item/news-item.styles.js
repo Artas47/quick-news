@@ -16,6 +16,7 @@ export const NewsItem = styled.div`
   background-image: ${props => (props.background ? `url(${Background})` : '')};
   background-size: cover;
   background-position: center;
+  user-select: none;
   @media only screen and (max-width: 900px) {
     height: ${props => (props.height === 0 ? '25rem' : '100%')};
     box-shadow: 0 2rem 2rem rgb(0, 0, 0, 0.2);
@@ -63,8 +64,9 @@ export const Bookmark = styled(BookmarkSVG)`
   top: 1rem;
   right: 1.2rem;
   z-index: 998;
-  fill: #8a8a8a;
-  pointer-events: fill;
+  transition: all 0.2s;
+  fill: ${props => (props.isMarked ? '#d9d073' : '#8a8a8a')};
+  pointer-events: stroke;
   cursor: default;
 `;
 //#d9d073
