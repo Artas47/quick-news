@@ -9,7 +9,8 @@ import {
   ACTIVE_CATEGORY_CHANGE,
   THEME_CHANGE,
   ADD_ITEM_TO_STORE,
-  DELETE_ITEM_FROM_STORE
+  DELETE_ITEM_FROM_STORE,
+  SHOW_ITEMS_FROM_STORE
 } from './types';
 
 export const fetchNewsStart = query => {
@@ -89,5 +90,12 @@ export const deleteItemFromStore = item => {
   return {
     type: DELETE_ITEM_FROM_STORE,
     payload: item
+  };
+};
+
+export const showItemsFromStore = items => {
+  return {
+    type: SHOW_ITEMS_FROM_STORE,
+    payload: items
   };
 };

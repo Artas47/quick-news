@@ -2,7 +2,8 @@ import {
   FETCH_NEWS_START,
   FETCH_NEWS_SUCCESS,
   FETCH_SEARCH_NEWS_SUCCESS,
-  FETCH_SEARCH_NEWS_START
+  FETCH_SEARCH_NEWS_START,
+  SHOW_ITEMS_FROM_STORE
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -22,6 +23,10 @@ export default (state = INITIAL_STATE, action) => {
       };
     case FETCH_SEARCH_NEWS_START:
       return { ...state, isLoading: true };
+    case SHOW_ITEMS_FROM_STORE:
+      return {
+        topNews: action.payload
+      };
     case FETCH_SEARCH_NEWS_SUCCESS:
       return {
         ...state,

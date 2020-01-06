@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import LazyLoad from 'react-lazyload';
 import NewsItem from '../news-item/news-item';
