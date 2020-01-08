@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const SpinnerOverlay = styled.div`
+  position: relative;
+  z-index: -1;
   height: 60vh;
   width: 100%;
   display: flex;
@@ -11,7 +13,6 @@ export const SpinnerOverlay = styled.div`
 export const SpinnerContainer = styled.div`
   display: inline-block;
   position: relative;
-  z-index: -1;
   width: 50px;
   height: 50px;
   border: 3px solid rgba(195, 195, 195, 0.6);

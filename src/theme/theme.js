@@ -13,7 +13,9 @@ export default {
     footerBg: '#5e5e5e',
     themeToggleButtonBg: '#5e5e5e',
     newsItemTextColor: '#cccccc',
-    searchInputTextColor: '#fff'
+    searchInputTextColor: '#fff',
+    newsNotFoundTextColor: '#fff',
+    clearItemsButtonColor: '#c9c9c9'
   },
   light: {
     filtersBg: '#b5bcbd',
@@ -26,6 +28,8 @@ export default {
     headerBorderBottomColor: '#c5c9d1',
     headerLogoColor: '#9e9e9e',
     themeToggleButtonBg: '#454545',
-    newsItemTextColor: '#fff'
+    newsItemTextColor: '#fff',
+    newsNotFoundTextColor: '#000',
+    clearItemsButtonColor: '#d4d4d4'
   }
 };

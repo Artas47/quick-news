@@ -24,4 +24,6 @@ export const NewsNotFoundText = styled.div`
   justify-content: center;
   font-size: 4rem;
   height: 100%;
+  transition: all 0.4s;
+  color: ${props => props.theme.newsNotFoundTextColor};
 `;

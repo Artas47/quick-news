@@ -1,4 +1,4 @@
-import { ADD_ITEM_TO_STORE, DELETE_ITEM_FROM_STORE } from '../actions/types';
+import { ADD_ITEM_TO_STORE, DELETE_ITEM_FROM_STORE, CLEAR_STORE_ITEMS } from '../actions/types';
 
 const INITIAL_STATE = {
   store: []
@@ -15,6 +15,10 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         store: state.store.filter(item => item.title !== action.payload.title)
+      };
+    case CLEAR_STORE_ITEMS:
+      return {
+        store: []
       };
     default:
       return state;

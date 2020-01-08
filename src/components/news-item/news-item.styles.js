@@ -52,7 +52,7 @@ export const NewsItemTitle = styled.p`
 export const ImageNotLoaded = styled.div`
   position: absolute;
   font-size: 5rem;
-  z-index: 999;
+  /* z-index: 999; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

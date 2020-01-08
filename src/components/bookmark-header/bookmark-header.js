@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { showItemsFromStore } from '../../actions/index';
+import { showItemsFromStore, clearStoreItems } from '../../actions/index';
 import * as Styled from './bookmark-header.styles';
 
 const BookmarkHeader = () => {
@@ -11,9 +11,12 @@ const BookmarkHeader = () => {
     window.scrollTo(0, 0);
   };
   return (
-    <Styled.BookmarkHeader onClick={onClickRender}>
-      <Styled.BookmarkCount>{store.length}</Styled.BookmarkCount>
-      <Styled.BookmarkHeaderSvg />
+    <Styled.BookmarkHeader>
+      <Styled.BookmarkSvgAndCountBox onClick={onClickRender}>
+        <Styled.BookmarkHeaderSvg />
+        <Styled.BookmarkCount>{store.length}</Styled.BookmarkCount>
+      </Styled.BookmarkSvgAndCountBox>
+      <Styled.ClearItems onClick={() => dispatch(clearStoreItems())}>Clear items</Styled.ClearItems>
     </Styled.BookmarkHeader>
   );
 };
