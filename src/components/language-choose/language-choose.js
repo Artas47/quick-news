@@ -2,22 +2,13 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeLanguage } from '../../actions/index';
 import * as Styled from './language-choose.styles';
+import { languages } from './languages';
 
 const LanguageChoose = () => {
   const dispatch = useDispatch();
   const activeLanguage = useSelector(state => state.language.activeLanguage);
   const onClickChange = language => {
     dispatch(changeLanguage(language));
-  };
-  const languages = {
-    pl: {
-      language: 'pl',
-      country: 'pl'
-    },
-    en: {
-      language: 'en',
-      country: 'us'
-    }
   };
   return (
     <Styled.LanguageChoose>

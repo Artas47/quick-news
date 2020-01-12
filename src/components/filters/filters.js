@@ -1,40 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import FilterItem from '../filter-item/filter-item';
 import * as Styled from './filters.styles';
-import { fetchNewsStart, fetchSearchNewsStart } from '../../actions/index';
+import { categories, sortBy } from './filters-data';
 
-const categories = [
-  'business',
-  'entertainment',
-  'general',
-  'health',
-  'science',
-  'sports',
-  'technology'
-];
-
-const sortBy = ['relevancy', 'popularity', 'publishedAt'];
-
-export const Filters = () => {
-  const dispatch = useDispatch();
-  const searchTerm = useSelector(state => state.searchTerm.searchTerm);
-  const activeLanguage = useSelector(state => state.language.activeLanguage);
-  const [activeCategory, setActiveCategory] = useState(['general']);
-  const [activeSortBy, setActiveSortBy] = useState(['popularity']);
-  useEffect(() => {
-    if (!searchTerm.length) {
-      dispatch(
-        fetchNewsStart(
-          `?country=${activeLanguage === 'en' ? 'us' : 'pl'}&category=${
-            activeCategory[0]
-          }&sortBy=${activeSortBy}&`
-        )
-      );
-    } else {
-      dispatch(fetchSearchNewsStart(searchTerm, activeSortBy, activeLanguage));
-    }
-  }, [activeCategory, activeSortBy, dispatch, activeLanguage]);
+export const Filters = props => {
+  const { setActiveCategory, setActiveSortBy, activeSortBy, activeCategory } = props;
   return (
     <Styled.Filters>
       <Styled.Categories>

@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import LazyLoad from 'react-lazyload';
-import NewsItem from '../news-item/news-item';
+// import NewsItem from '../news-item/news-item';
+import NewsItemContainer from '../news-item/news-item.container';
 import * as Styled from './news-list.styles';
 import Spinner from '../spinner/spinner';
 
@@ -28,7 +29,7 @@ export const News = () => {
       {fileteredNews.map(top => {
         return (
           <LazyLoad key={top.title} height={200}>
-            <NewsItem
+            <NewsItemContainer
               wholeItem={top}
               title={top.title}
               imgUrl={top.urlToImage}

@@ -5,7 +5,7 @@ import { fetchNewsStart, fetchSearchNewsStart } from './actions/index';
 import News from './components/news-list/news-list';
 import { GlobalStyles } from './global-styles';
 import Header from './components/header/header';
-import Filters from './components/filters/filters';
+import FilterContainer from './components/filters/filters.container';
 import Footer from './components/footer/footer';
 import THEME from './theme/theme';
 
@@ -33,7 +33,7 @@ function App() {
       <ThemeProvider theme={lightTheme ? THEME.light : THEME.dark}>
         <GlobalStyles />
         <Header />
-        <Filters />
+        <FilterContainer />
         <News />
         <Footer />
       </ThemeProvider>
