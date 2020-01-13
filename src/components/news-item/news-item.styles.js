@@ -11,7 +11,7 @@ export const NewsItem = styled.div`
   box-shadow: 0 2rem 2rem rgb(0, 0, 0, 0.6);
   align-self: start;
   justify-self: start;
-  visibility: ${props => (!props.visibility ? 'visible' : 'hidden')};
+  visibility: ${props => (!props.visible ? 'visible' : 'hidden')};
   transition: all 1s;
   background-image: ${props => (props.background ? `url(${Background})` : '')};
   background-size: cover;
@@ -28,7 +28,7 @@ export const NewsItemImg = styled.img`
   width: 100%;
   height: 100%;
   filter: brightness(0.4);
-  visibility: ${props => (props.visibility ? 'visible' : 'hidden')};
+  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
 `;
 
 export const NewsItemTitle = styled.p`
@@ -37,7 +37,7 @@ export const NewsItemTitle = styled.p`
   left: 1.5rem;
   color: ${props => props.theme.newsItemTextColor};
   font-size: 3rem;
-  visibility: ${props => (props.visibility ? 'visible' : 'hidden')};
+  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
   @media only screen and (max-width: 650px) {
     font-size: 2.3rem;
   }
@@ -65,7 +65,7 @@ export const Bookmark = styled(BookmarkSVG)`
   right: 1.2rem;
   z-index: 998;
   transition: all 0.2s;
-  fill: ${props => (props.isMarked ? '#d9d073' : '#8a8a8a')};
+  fill: ${props => (props.ismarked ? '#d9d073' : '#8a8a8a')};
   pointer-events: stroke;
   cursor: default;
 `;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FilterItem from '../filter-item/filter-item';
 import * as Styled from './filters.styles';
 import { categories, sortBy } from './filters-data';
@@ -38,3 +39,17 @@ export const Filters = props => {
 };
 
 export default Filters;
+
+Filters.defaultProps = {
+  // activeCategory: 'general',
+  // activeSortBy: 'popularity',
+  setActiveCategory: () => {},
+  setActiveSortBy: () => {}
+};
+
+Filters.propTypes = {
+  setActiveCategory: PropTypes.func,
+  setActiveSortBy: PropTypes.func
+  // activeSortBy: PropTypes.string,
+  // activeCategory: PropTypes.string
+};

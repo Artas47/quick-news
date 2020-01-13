@@ -37,12 +37,15 @@ export const NewsItem = props => {
 
   return (
     <Styled.NewsItem background={isLoaded === 'error'} height={imgHeight} width={imgWidth}>
-      <Styled.Bookmark isMarked={isMarked()} onClick={handleOnClick} />
+      <Styled.Bookmark
+        /*idk why isMarked has to be lowercase*/ ismarked={isMarked()}
+        onClick={handleOnClick}
+      />
       <a href={url} rel="noopener noreferrer" target="_blank">
         <Styled.ImageNotLoaded>{isLoaded === 'loading' ? <Spinner /> : ''}</Styled.ImageNotLoaded>
         <Fade in={isAnimationLoading}>
           <Styled.NewsItemImg
-            visibility={isLoaded === 'loaded'}
+            visible={isLoaded === 'loaded'}
             onLoad={handleImageLoaded}
             onError={handleImageError}
             ref={ref}
@@ -50,7 +53,7 @@ export const NewsItem = props => {
             alt={title}
           />
         </Fade>
-        <Styled.NewsItemTitle visibility={isLoaded === 'error' || isLoaded === 'loaded'}>
+        <Styled.NewsItemTitle visible={isLoaded === 'error' || isLoaded === 'loaded'}>
           {title}
         </Styled.NewsItemTitle>
       </a>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { addItemToStore, deleteItemFromStore } from '../../actions/index';
 import NewsItem from './news-item';
 
@@ -50,3 +51,14 @@ const NewsItemContainer = props => {
 };
 
 export default NewsItemContainer;
+
+NewsItemContainer.propTypes = {
+  url: PropTypes.string.isRequired,
+  imgUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  wholeItem: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    urlToImage: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired
+  }).isRequired
+};

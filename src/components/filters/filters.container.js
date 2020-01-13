@@ -7,15 +7,15 @@ const FilterContainer = () => {
   const dispatch = useDispatch();
   const searchTerm = useSelector(state => state.searchTerm.searchTerm);
   const activeLanguage = useSelector(state => state.language.activeLanguage);
-  const [activeCategory, setActiveCategory] = useState(['general']);
-  const [activeSortBy, setActiveSortBy] = useState(['popularity']);
+  const [activeCategory, setActiveCategory] = useState('general');
+  const [activeSortBy, setActiveSortBy] = useState('popularity');
   useEffect(() => {
     if (!searchTerm.length) {
       dispatch(
         fetchNewsStart(
-          `?country=${activeLanguage === 'en' ? 'us' : 'pl'}&category=${
-            activeCategory[0]
-          }&sortBy=${activeSortBy}&`
+          `?country=${activeLanguage === 'en' ? 'us' : 'pl'}&category=${activeCategory}&sortBy=${
+            activeSortBy[0]
+          }&`
         )
       );
     } else {

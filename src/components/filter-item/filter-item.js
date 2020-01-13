@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import * as Styled from './filter-item.styles';
 import { setActiveSort, activeCategoryChange } from '../../actions/index';
@@ -7,18 +8,19 @@ export const FilterItem = props => {
   const dispatch = useDispatch();
   const searchTerm = useSelector(state => state.searchTerm);
   const { activeCategory, setActiveCategory, activeSortBy, setActiveSortBy, name, id } = props;
-  const onClickHandler = name => {
+
+  const onClickHandler = category => {
     if (activeCategory) {
-      setActiveCategory([name]);
-      dispatch(activeCategoryChange(name));
-    } else {
-      dispatch(activeCategoryChange(name));
-      setActiveSortBy([name]);
-      dispatch(setActiveSort(name));
+      setActiveCategory(category);
+      dispatch(activeCategoryChange(category));
+    }
+    if (activeSortBy) {
+      setActiveSortBy(category);
+      dispatch(setActiveSort(category));
     }
   };
-  const isActiveCategory = activeCategory ? activeCategory[0] === name : '';
-  const isActiveSortBy = activeSortBy ? activeSortBy[0] === name : '';
+  const isActiveCategory = activeCategory ? activeCategory === name : '';
+  const isActiveSortBy = activeSortBy ? activeSortBy === name : '';
   return (
     <Styled.FilterItem
       active={
@@ -38,3 +40,19 @@ export const FilterItem = props => {
 };
 
 export default FilterItem;
+
+FilterItem.defaultProps = {
+  activeCategory: 'general',
+  activeSortBy: 'popularity',
+  setActiveCategory: () => {},
+  setActiveSortBy: () => {}
+};
+
+FilterItem.propTypes = {
+  activeCategory: PropTypes.string,
+  setActiveCategory: PropTypes.func,
+  activeSortBy: PropTypes.string,
+  setActiveSortBy: PropTypes.func,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired
+};
