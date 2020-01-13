@@ -19,6 +19,5 @@ export const GlobalStyles = createGlobalStyle`
     overflow-y: scroll;
     background-color: ${props => props.theme.mainContentBg};
     transition: all 1s;
-    /*#454545 for dark mode*/
   }
 `;

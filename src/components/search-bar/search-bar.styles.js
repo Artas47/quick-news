@@ -21,8 +21,8 @@ export const SearchBar = styled.input`
   color: ${props => props.theme.searchInputTextColor};
   font-size: 2rem;
   transition: border-bottom-color 0.2s, background-color 1s;
-  background-color: ${props => props.theme.headerBg}
-  
+  background-color: ${props => props.theme.headerBg};
+
   :focus {
     outline: none;
     border-bottom-color: #4c8ce0;
@@ -35,7 +35,7 @@ export const SearchBar = styled.input`
 
 export const SearchBarBtn = styled.button`
   border: none;
-  background-color: ${props => props.theme.headerBg}
+  background-color: ${props => props.theme.headerBg};
   margin-left: -5rem;
   transition: all 1s;
   z-index: 1000;

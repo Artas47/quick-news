@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import * as Styled from './news-item.styles';
 import Spinner from '../spinner/spinner';
 
@@ -10,7 +11,7 @@ export const NewsItem = props => {
     isLoaded,
     imgHeight,
     imgWidth,
-    isMarked,
+    isBookmarked,
     handleOnClick,
     url,
     isAnimationLoading,
@@ -37,10 +38,7 @@ export const NewsItem = props => {
 
   return (
     <Styled.NewsItem background={isLoaded === 'error'} height={imgHeight} width={imgWidth}>
-      <Styled.Bookmark
-        /*idk why isMarked has to be lowercase*/ ismarked={isMarked()}
-        onClick={handleOnClick}
-      />
+      <Styled.Bookmark isbookmarked={isBookmarked()} onClick={handleOnClick} />
       <a href={url} rel="noopener noreferrer" target="_blank">
         <Styled.ImageNotLoaded>{isLoaded === 'loading' ? <Spinner /> : ''}</Styled.ImageNotLoaded>
         <Fade in={isAnimationLoading}>
@@ -62,3 +60,19 @@ export const NewsItem = props => {
 };
 
 export default NewsItem;
+
+NewsItem.propTypes = {
+  imgHeight: PropTypes.number.isRequired,
+  imgWidth: PropTypes.number.isRequired,
+  isBookmarked: PropTypes.func.isRequired,
+  handleOnClick: PropTypes.func.isRequired,
+  url: PropTypes.string.isRequired,
+  isAnimationLoading: PropTypes.bool.isRequired,
+  handleImageError: PropTypes.func.isRequired,
+  handleImageLoaded: PropTypes.func.isRequired,
+  imgUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  setImgWidth: PropTypes.func.isRequired,
+  setImgHeight: PropTypes.func.isRequired,
+  isLoaded: PropTypes.string.isRequired
+};

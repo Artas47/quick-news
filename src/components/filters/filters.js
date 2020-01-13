@@ -41,15 +41,15 @@ export const Filters = props => {
 export default Filters;
 
 Filters.defaultProps = {
-  // activeCategory: 'general',
-  // activeSortBy: 'popularity',
+  activeCategory: 'general',
+  activeSortBy: 'popularity',
   setActiveCategory: () => {},
   setActiveSortBy: () => {}
 };
 
 Filters.propTypes = {
   setActiveCategory: PropTypes.func,
-  setActiveSortBy: PropTypes.func
-  // activeSortBy: PropTypes.string,
-  // activeCategory: PropTypes.string
+  setActiveSortBy: PropTypes.func,
+  activeSortBy: PropTypes.string,
+  activeCategory: PropTypes.string
 };

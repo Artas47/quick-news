@@ -65,9 +65,7 @@ export const Bookmark = styled(BookmarkSVG)`
   right: 1.2rem;
   z-index: 998;
   transition: all 0.2s;
-  fill: ${props => (props.ismarked ? '#d9d073' : '#8a8a8a')};
+  fill: ${props => (props.isbookmarked ? '#d9d073' : '#8a8a8a')};
   pointer-events: stroke;
   cursor: default;
 `;
-//#d9d073
-//#8a8a8a

@@ -21,11 +21,11 @@ const NewsItemContainer = props => {
     setIsLoaded('error');
   };
   const store = useSelector(state => state.itemsStore.store);
-  const isMarked = () => {
+  const isBookmarked = () => {
     return store.find(item => item.title === wholeItem.title);
   };
   const handleOnClick = () => {
-    if (isMarked()) {
+    if (isBookmarked()) {
       dispatch(deleteItemFromStore(wholeItem));
     } else {
       dispatch(addItemToStore(wholeItem));
@@ -33,7 +33,7 @@ const NewsItemContainer = props => {
   };
   return (
     <NewsItem
-      isMarked={isMarked}
+      isBookmarked={isBookmarked}
       imgWidth={imgWidth}
       imgHeight={imgHeight}
       isLoaded={isLoaded}

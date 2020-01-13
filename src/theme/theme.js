@@ -1,35 +1,44 @@
+const colors = {
+  darkGrey1: '#5e5e5e',
+  darkGrey2: '#545454',
+  darkGrey3: '#454545',
+  lightGrey: '#9e9e9e',
+  white: '#fff',
+  black: '#000'
+};
+
 export default {
   dark: {
-    headerBg: '#545454',
-    mainContentBg: '#454545',
-    searchBg: '#545454',
-    languageChooseColor: '#fff',
-    languageChooseBorderColor: '#fff',
+    headerBg: colors.darkGrey1,
+    mainContentBg: colors.darkGrey2,
+    searchBg: colors.darkGrey1,
+    languageChooseColor: colors.white,
+    languageChooseBorderColor: colors.white,
     headerBorderBottomColor: '#7f8082',
-    headerLogoColor: '#9e9e9e',
+    headerLogoColor: colors.lightGrey,
     filtersBg: '#636363',
     filterItemTextColor: '#e8e8e8',
     filterItemTextColorDisabled: '#7a7a7a',
-    footerBg: '#5e5e5e',
-    themeToggleButtonBg: '#5e5e5e',
-    newsItemTextColor: '#cccccc',
-    searchInputTextColor: '#fff',
-    newsNotFoundTextColor: '#fff',
+    footerBg: colors.darkGrey1,
+    themeToggleButtonBg: colors.darkGrey1,
+    newsItemTextColor: '#ccc',
+    searchInputTextColor: colors.white,
+    newsNotFoundTextColor: colors.white,
     clearItemsButtonColor: '#c9c9c9'
   },
   light: {
     filtersBg: '#b5bcbd',
     mainContentBg: '#dee0e0',
     footerBg: '#919191',
-    headerBg: '#fff',
-    languageChooseColor: '#000',
+    headerBg: colors.white,
+    languageChooseColor: colors.black,
     filterItemTextColorDisabled: '#d9d9d9',
-    languageChooseBorderColor: '#000',
+    languageChooseBorderColor: colors.black,
     headerBorderBottomColor: '#c5c9d1',
-    headerLogoColor: '#9e9e9e',
-    themeToggleButtonBg: '#454545',
-    newsItemTextColor: '#fff',
-    newsNotFoundTextColor: '#000',
+    headerLogoColor: colors.lightGrey,
+    themeToggleButtonBg: colors.darkGrey2,
+    newsItemTextColor: colors.white,
+    newsNotFoundTextColor: colors.black,
     clearItemsButtonColor: '#d4d4d4'
   }
 };
