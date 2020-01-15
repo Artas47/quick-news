@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const NewsList = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(43rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
   grid-auto-rows: 28rem;
   grid-auto-flow: dense;
   grid-gap: 3rem;

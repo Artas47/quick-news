@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
 import { createStore, applyMiddleware, compose } from 'redux';
-
 import createSagaMiddleware from 'redux-saga';
 import AppContainer from './app/App.container';
 import reducers from './reducers/index';
@@ -14,9 +15,13 @@ const store = createStore(reducers, composeEnhancers(applyMiddleware(sagaMiddlew
 
 sagaMiddleware.run(rootSaga);
 
+const persistor = persistStore(store);
+
 ReactDOM.render(
   <Provider store={store}>
-    <AppContainer />
+    <PersistGate persistor={persistor}>
+      <AppContainer />
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );
