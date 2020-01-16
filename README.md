@@ -1,3 +1,6 @@
+Quick news shows actual information from usa or poland that can be sorted. There is also possibility to search for any news.
+
+It uses react + redux with axios, redux-saga, redux-persist, styled-components, react-transition-group.
 
 LIVE DEMO: https://quick-news.herokuapp.com/
 
