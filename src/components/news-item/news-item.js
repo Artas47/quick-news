@@ -1,12 +1,13 @@
 import React, { useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as Styled from './news-item.styles';
 import Spinner from '../spinner/spinner';
-
 import Fade from '../fade-animation/fade';
 
 export const NewsItem = props => {
   const ref = useRef();
+  const areNewsOneSized = useSelector(state => state.settings.oneSizedNews);
   const {
     isLoaded,
     imgHeight,
@@ -23,6 +24,9 @@ export const NewsItem = props => {
     setImgHeight
   } = props;
   useEffect(() => {
+    if (!areNewsOneSized) {
+      return;
+    }
     const getImgHeightAndWidth = () => {
       try {
         const width = ref.current.naturalWidth;
@@ -34,7 +38,7 @@ export const NewsItem = props => {
       }
     };
     ref.current.addEventListener('load', getImgHeightAndWidth);
-  }, [setImgHeight, setImgWidth]);
+  }, [setImgWidth, setImgHeight]);
 
   const shortenTitleTextForAlt = titleForAlt => {
     return `${titleForAlt.slice(0, 20)}...`;

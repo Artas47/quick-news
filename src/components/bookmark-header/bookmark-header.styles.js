@@ -4,7 +4,7 @@ import { ReactComponent as Bookmark } from '../../assets/bookmarks.svg';
 export const BookmarkHeader = styled.div`
   position: absolute;
   top: 1rem;
-  right: 12rem;
+  right: 15.2rem;
   cursor: pointer;
   user-select: none;
   display: flex;

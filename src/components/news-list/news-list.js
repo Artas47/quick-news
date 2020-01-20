@@ -1,13 +1,28 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import LazyLoad from 'react-lazyload';
 import NewsItemContainer from '../news-item/news-item.container';
 import * as Styled from './news-list.styles';
+import { fetchNewsStart } from '../../actions/index';
 import Spinner from '../spinner/spinner';
 
 export const News = () => {
+  const dispatch = useDispatch();
   const isLoading = useSelector(state => state.news.isLoading);
   const topNews = useSelector(state => state.news.topNews);
+  const areNewsOneSized = useSelector(state => state.settings.oneSizedNews);
+  const activeLanguage = useSelector(state => state.language.activeLanguage);
+  const activeSort = useSelector(state => state.activeSort.activeSort);
+  const activeCategory = useSelector(state => state.activeSort.activeCategory);
+
+  useEffect(() => {
+    dispatch(
+      fetchNewsStart(
+        `?country=${activeLanguage === 'en' ? 'us' : 'pl'}&category=${activeCategory}&`,
+        activeSort
+      )
+    );
+  }, [areNewsOneSized]);
 
   const fileteredNews = topNews.filter(news => {
     return news.urlToImage;

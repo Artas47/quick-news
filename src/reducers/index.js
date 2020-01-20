@@ -7,6 +7,7 @@ import activeSortReducer from './activeSortReducer';
 import languageReducer from './languageReducer';
 import themeReducer from './themeReducer';
 import itemsStoreReducer from './itemsStoreReducer';
+import settingsReducer from './settingsReducer';
 
 const persistConfig = {
   key: 'root',
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   activeSort: activeSortReducer,
   language: languageReducer,
   theme: themeReducer,
-  itemsStore: itemsStoreReducer
+  itemsStore: itemsStoreReducer,
+  settings: settingsReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);

@@ -11,6 +11,7 @@ const NewsItemContainer = props => {
   const [isLoaded, setIsLoaded] = useState('loading');
   const [isAnimationLoading, setIsAnimationLoading] = useState(false);
   const { url, imgUrl, title, wholeItem } = props;
+  const store = useSelector(state => state.itemsStore.store);
 
   const handleImageLoaded = () => {
     setIsLoaded('loaded');
@@ -20,7 +21,6 @@ const NewsItemContainer = props => {
   const handleImageError = () => {
     setIsLoaded('error');
   };
-  const store = useSelector(state => state.itemsStore.store);
   const isBookmarked = () => {
     return store.find(item => item.title === wholeItem.title);
   };
