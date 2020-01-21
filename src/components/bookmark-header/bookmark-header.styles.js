@@ -4,13 +4,13 @@ import { ReactComponent as Bookmark } from '../../assets/bookmarks.svg';
 export const BookmarkHeader = styled.div`
   position: absolute;
   top: 1rem;
-  right: 12rem;
+  right: 15.2rem;
   cursor: pointer;
   user-select: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 900px) {
     left: 2rem;
     right: unset;
   }

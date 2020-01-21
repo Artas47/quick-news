@@ -13,7 +13,7 @@ export const Header = styled.div`
   top: 0;
   transition: all 1s;
   border-bottom: 2px solid ${props => props.theme.headerBorderBottomColor};
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 900px) {
     height: 14rem;
   }
 `;
@@ -25,7 +25,7 @@ export const LogoAndName = styled(Logo)`
   top: 50%;
   left: 3rem;
   transform: translate(0, -50%);
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 900px) {
     top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);

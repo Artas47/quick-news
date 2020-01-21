@@ -18,6 +18,6 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Raleway', sans-serif;
     overflow-y: scroll;
     background-color: ${props => props.theme.mainContentBg};
-    transition: all 1s;
+    transition: background-color 1s;
   }
 `;

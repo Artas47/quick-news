@@ -6,7 +6,7 @@ export const Form = styled.form`
   justify-content: space-between;
   align-items: center;
 
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 900px) {
     margin-bottom: -2.5rem;
   }
 `;
@@ -38,7 +38,7 @@ export const SearchBarBtn = styled.button`
   background-color: ${props => props.theme.headerBg};
   margin-left: -5rem;
   transition: all 1s;
-  z-index: 1000;
+  z-index: 2;
   fill: darkgray;
   cursor: pointer;
   :focus {

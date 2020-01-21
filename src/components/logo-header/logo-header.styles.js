@@ -8,7 +8,7 @@ export const LogoHeader = styled(Logo)`
   top: 50%;
   left: 3rem;
   transform: translate(0, -50%);
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 900px) {
     top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);

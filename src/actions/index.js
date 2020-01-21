@@ -11,7 +11,8 @@ import {
   ADD_ITEM_TO_STORE,
   DELETE_ITEM_FROM_STORE,
   SHOW_ITEMS_FROM_STORE,
-  CLEAR_STORE_ITEMS
+  CLEAR_STORE_ITEMS,
+  NEWS_SIZE_CHANGE
 } from './types';
 
 export const fetchNewsStart = query => {
@@ -104,5 +105,11 @@ export const showItemsFromStore = items => {
 export const clearStoreItems = () => {
   return {
     type: CLEAR_STORE_ITEMS
+  };
+};
+
+export const newsSizeChange = () => {
+  return {
+    type: NEWS_SIZE_CHANGE
   };
 };
