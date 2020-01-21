@@ -1,11 +1,9 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import * as Styled from './settings-header-svg.styles';
-import { toggleSetting } from '../../actions/index';
 
-const SettingsHeaderSvg = () => {
-  const dispatch = useDispatch();
-  return <Styled.SettingsSvg onClick={() => dispatch(toggleSetting())} />;
+const SettingsHeaderSvg = props => {
+  const { onClick } = props;
+  return <Styled.SettingsSvg onClick={onClick} />;
 };
 
 export default SettingsHeaderSvg;

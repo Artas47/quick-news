@@ -8,6 +8,17 @@ export const SettingsSvg = styled(Settings)`
   fill: #8a8a8a;
   cursor: pointer;
   transition: all 0.2s;
+  @media only screen and (max-width: 700px) {
+    top: 4.5rem;
+    right: 3rem;
+  }
+  @media only screen and (max-width: 550px) {
+    width: 2.5rem;
+    top: 3rem;
+  }
+  @media only screen and (max-width: 450px) {
+    right: 2.5rem;
+  }
 `;
 
 export const SettingsBox = styled.div`

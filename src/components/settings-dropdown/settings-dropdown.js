@@ -1,26 +1,40 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { themeChange, newsSizeChange } from '../../actions/index';
 import * as Styled from './settings-dropdown.styles.';
-import ToggleButton from '../toggle-button/toggle-button';
+import Checkbox from '../checkbox/checkbox';
 
 const SettingsBox = () => {
   const dispatch = useDispatch();
+  const settings = useSelector(state => state.settings);
+
   return (
     <Styled.SettingsBox>
       <Styled.SettingsBoxText>Settings</Styled.SettingsBoxText>
-      <Styled.OptionBox>
-        <Styled.OptionText>Dark mode</Styled.OptionText>
-        <Styled.OptionButton>
-          <ToggleButton id="theme-toogle-button" onClickAction={() => dispatch(themeChange())} />
-        </Styled.OptionButton>
-      </Styled.OptionBox>
-      <Styled.OptionBox>
-        <Styled.OptionText>One sized news</Styled.OptionText>
-        <Styled.OptionButton>
-          <ToggleButton id="size-toogle-button" onClickAction={() => dispatch(newsSizeChange())} />
-        </Styled.OptionButton>
-      </Styled.OptionBox>
+      {Object.keys(settings).map(item => {
+        const onClickAction = () => {
+          switch (item.toString()) {
+            case 'oneSizedNews':
+              dispatch(newsSizeChange());
+              break;
+            case 'darkTheme':
+              dispatch(themeChange());
+              break;
+            default:
+              break;
+          }
+        };
+        return (
+          <Styled.OptionBox key={item}>
+            <Styled.OptionText>{settings[item].displayText}</Styled.OptionText>
+            <Checkbox
+              id="theme-toogle-button"
+              isChecked={settings[item].value}
+              onClickAction={onClickAction}
+            />
+          </Styled.OptionBox>
+        );
+      })}
     </Styled.SettingsBox>
   );
 };

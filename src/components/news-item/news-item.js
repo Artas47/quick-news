@@ -7,7 +7,7 @@ import Fade from '../fade-animation/fade';
 
 export const NewsItem = props => {
   const ref = useRef();
-  const areNewsOneSized = useSelector(state => state.settings.oneSizedNews);
+  const areNewsOneSized = useSelector(state => state.settings.oneSizedNews.value);
   const {
     isLoaded,
     imgHeight,
@@ -24,7 +24,7 @@ export const NewsItem = props => {
     setImgHeight
   } = props;
   useEffect(() => {
-    if (!areNewsOneSized) {
+    if (areNewsOneSized) {
       return;
     }
     const getImgHeightAndWidth = () => {
@@ -38,7 +38,7 @@ export const NewsItem = props => {
       }
     };
     ref.current.addEventListener('load', getImgHeightAndWidth);
-  }, [setImgWidth, setImgHeight]);
+  }, [setImgWidth, setImgHeight, areNewsOneSized]);
 
   const shortenTitleTextForAlt = titleForAlt => {
     return `${titleForAlt.slice(0, 20)}...`;

@@ -10,7 +10,7 @@ export const BookmarkHeader = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 900px) {
     left: 2rem;
     right: unset;
   }

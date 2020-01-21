@@ -6,8 +6,9 @@ export const SettingsBox = styled.div`
   right: 3rem;
   width: 20rem;
   height: 23rem;
-  border: 7px solid #5e5e5e;
+  border: 3px solid #c4c4c4;
   background-color: white;
+  z-index: 3;
   display: flex;
   flex-direction: column;
 `;
@@ -23,12 +24,13 @@ export const SettingsBoxText = styled.p`
 export const OptionBox = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin: 0 1rem;
+  align-items: center;
+  :not(:last-child) {
+    margin-bottom: 2rem;
+  }
 `;
 
 export const OptionText = styled.p`
   font-size: 1.7rem;
 `;
-
-export const OptionButton = styled.p``;
