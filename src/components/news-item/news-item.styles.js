@@ -20,6 +20,9 @@ export const NewsItem = styled.div`
   @media only screen and (max-width: 900px) {
     height: ${props => (props.height === 0 ? '25rem' : '100%')};
     box-shadow: 0 2rem 2rem rgb(0, 0, 0, 0.2);
+    :not(:last-child) {
+      margin-bottom: 0.7rem;
+    }
   }
 `;
 
