@@ -4,7 +4,8 @@ import * as Styled from './footer.styles';
 const Footer = () => {
   return (
     <Styled.Footer>
-      <p style={{ fontSize: '1.8rem', fontWeight: '600' }}>powered by NewsAPI.org</p>
+      <Styled.PoweredByText>powered by NewsAPI.org</Styled.PoweredByText>
+      <Styled.CopyrightText>© 2020 Artur Gorzelany All Rights Reserved</Styled.CopyrightText>
     </Styled.Footer>
   );
 };
