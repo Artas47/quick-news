@@ -5,9 +5,11 @@ export const Form = styled.form`
   width: 40rem;
   justify-content: space-between;
   align-items: center;
-
   @media only screen and (max-width: 900px) {
     margin-bottom: -2.5rem;
+  }
+  @media only screen and (max-width: 500px) {
+    margin-bottom: -4.5rem;
   }
 `;
 

@@ -22,7 +22,7 @@ export const News = () => {
         activeSort
       )
     );
-  }, [areNewsOneSized, activeLanguage, activeCategory, activeSort, dispatch]);
+  }, [areNewsOneSized, activeLanguage, dispatch]);
 
   const fileteredNews = topNews.filter(news => {
     return news.urlToImage;
