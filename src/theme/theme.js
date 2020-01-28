@@ -24,7 +24,9 @@ export default {
     newsItemTextColor: '#ccc',
     searchInputTextColor: colors.white,
     newsNotFoundTextColor: colors.white,
-    clearItemsButtonColor: '#c9c9c9'
+    clearItemsButtonColor: '#c9c9c9',
+    settingsDropdownBg: '#757575',
+    settingsDropdownTextColor: '#e9e9e9'
   },
   light: {
     filtersBg: '#b5bcbd',
@@ -39,6 +41,8 @@ export default {
     themeToggleButtonBg: colors.darkGrey2,
     newsItemTextColor: colors.white,
     newsNotFoundTextColor: colors.black,
-    clearItemsButtonColor: '#d4d4d4'
+    clearItemsButtonColor: '#d4d4d4',
+    settingsDropdownBg: '#e9e9e9',
+    settingsDropdownTextColor: '#363636'
   }
 };

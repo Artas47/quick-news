@@ -10,13 +10,12 @@ import Footer from '../components/footer/footer';
 import THEME from '../theme/theme';
 /*
 TO DO
-HOC in app for fetching news
 refactor fetching news action to be more readable
-fix animation when page first starts
-fix toggle-button to be "checked"
+fix animation when page first starts - DONE
+fix toggle-button to be "checked" - DONE
 add possibility to not lazyload images
-add settings to local storage
-make settings dropdown responsible
+add settings to local storage - DONE
+make settings dropdown responsible - DONE
 fix background color animation when page first starts
 animate settings dropdown
 */

@@ -7,9 +7,11 @@ export const SettingsBox = styled.div`
   width: 20rem;
   height: 23rem;
   border: 3px solid #c4c4c4;
-  background-color: white;
+  background-color: ${props => props.theme.settingsDropdownBg};
+  color: ${props => props.theme.settingsDropdownTextColor};
   z-index: 3;
   display: flex;
+  transition: all 1s;
   flex-direction: column;
 `;
 
