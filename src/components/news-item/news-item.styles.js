@@ -39,16 +39,19 @@ export const NewsItemTitle = styled.p`
   bottom: 1.5rem;
   left: 1.5rem;
   color: ${props => props.theme.newsItemTextColor};
-  font-size: 3rem;
+  font-size: 2.8rem;
   visibility: ${props => (props.visible ? 'visible' : 'hidden')};
+  @media only screen and (max-width: 1000px) {
+    font-size: 2.5rem;
+  }
   @media only screen and (max-width: 650px) {
     font-size: 2.3rem;
   }
   @media only screen and (max-width: 500px) {
-    font-size: 1.8rem;
+    font-size: 2.1rem;
   }
   @media only screen and (max-width: 400px) {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
   }
 `;
 
