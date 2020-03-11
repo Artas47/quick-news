@@ -3,7 +3,9 @@ import axios from 'axios';
 import { fetchSearchNewsSuccess } from '../actions/index';
 import { FETCH_SEARCH_NEWS_START } from '../actions/types';
 
-export function* fetchSearchNewsAsync({ payload: { searchTerm, sortBy = '', language } }) {
+export function* fetchSearchNewsAsync({
+  payload: { searchTerm, sortBy = 'popularity', language }
+}) {
   const response = yield axios.get(
     `https://newsapi.org/v2/everything?q=${searchTerm}&sortBy=${sortBy}&language=${language}&apiKey=e5b7f867d3024285b78911aea71aaf23`
   );

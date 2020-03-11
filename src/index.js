@@ -5,7 +5,7 @@ import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import AppContainer from './app/App.container';
+import App from './app/App';
 import reducers from './reducers/index';
 import rootSaga from './sagas/root-saga';
 
@@ -20,7 +20,7 @@ const persistor = persistStore(store);
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
-      <AppContainer />
+      <App />
     </PersistGate>
   </Provider>,
   document.getElementById('root')

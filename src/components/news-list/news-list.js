@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import LazyLoad from 'react-lazyload';
+import { useParams } from 'react-router-dom';
 import NewsItemContainer from '../news-item/news-item.container';
 import * as Styled from './news-list.styles';
-import { fetchNewsStart } from '../../actions/index';
+import { fetchNewsStart, fetchSearchNewsStart } from '../../actions/index';
 import Spinner from '../spinner/spinner';
 
 export const News = () => {
@@ -13,16 +14,25 @@ export const News = () => {
   const areNewsOneSized = useSelector(state => state.settings.oneSizedNews);
   const activeLanguage = useSelector(state => state.language.activeLanguage);
   const activeSort = useSelector(state => state.activeSort.activeSort);
-  const activeCategory = useSelector(state => state.activeSort.activeCategory);
-
+  const params = useParams();
   useEffect(() => {
+    if (params.searchTerm && params.sortBy) {
+      dispatch(fetchSearchNewsStart(params.searchTerm, params.sortBy, activeLanguage));
+      return;
+    }
+    if (params.searchTerm) {
+      dispatch(fetchSearchNewsStart(params.searchTerm, 'popularity', activeLanguage));
+      return;
+    }
     dispatch(
       fetchNewsStart(
-        `?country=${activeLanguage === 'en' ? 'us' : 'pl'}&category=${activeCategory}&`,
+        `?country=${activeLanguage === 'en' ? 'us' : 'pl'}&category=${
+          params.category ? params.category : 'general'
+        }&`,
         activeSort
       )
     );
-  }, [areNewsOneSized, activeLanguage, dispatch]);
+  }, [areNewsOneSized, activeLanguage, dispatch, params]);
 
   const fileteredNews = topNews.filter(news => {
     return news.urlToImage;

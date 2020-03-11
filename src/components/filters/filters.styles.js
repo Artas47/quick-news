@@ -25,6 +25,7 @@ export const Categories = styled.div`
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 1.5rem;
+
   @media only screen and (max-width: 800px) {
     margin-bottom: 0;
   }

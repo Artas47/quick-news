@@ -40,9 +40,9 @@ export const NewsItem = props => {
     ref.current.addEventListener('load', getImgHeightAndWidth);
   }, [setImgWidth, setImgHeight, areNewsOneSized]);
 
-  const shortenTitleTextForAlt = titleForAlt => {
-    return `${titleForAlt.slice(0, 20)}...`;
-  };
+  // const shortenTitleTextForAlt = titleForAlt => {
+  //   return `${titleForAlt.slice(0, 20)}...`;
+  // };
 
   return (
     <Styled.NewsItem background={isLoaded === 'error'} height={imgHeight} width={imgWidth}>
@@ -56,7 +56,6 @@ export const NewsItem = props => {
             onError={handleImageError}
             ref={ref}
             src={imgUrl}
-            alt={shortenTitleTextForAlt(title)}
           />
         </Fade>
         <Styled.NewsItemTitle visible={isLoaded === 'error' || isLoaded === 'loaded'}>

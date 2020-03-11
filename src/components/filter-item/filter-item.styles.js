@@ -1,12 +1,15 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const FilterItem = styled.div`
+export const FilterItem = styled(Link)`
   padding: 0.5rem 2rem;
   height: 3rem;
   border: 1px solid lightyellow;
+  text-decoration: none;
   display: flex;
   align-items: center;
   font-size: 1.5rem;
+  color: #000;
   cursor: pointer;
   user-select: none;
   color: ${props => props.theme.filterItemTextColor};

@@ -1,38 +1,23 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
+import { useParams, useLocation, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import * as Styled from './filter-item.styles';
-import { setActiveSort, activeCategoryChange } from '../../actions/index';
 
 export const FilterItem = props => {
-  const dispatch = useDispatch();
   const searchTerm = useSelector(state => state.searchTerm);
-  const { activeCategory, setActiveCategory, activeSortBy, setActiveSortBy, name, id } = props;
-
-  const onClickHandler = category => {
-    if (activeCategory) {
-      setActiveCategory(category);
-      dispatch(activeCategoryChange(category));
-    }
-    if (activeSortBy) {
-      setActiveSortBy(category);
-      dispatch(setActiveSort(category));
-    }
-  };
-  const isActiveCategory = activeCategory ? activeCategory === name : '';
-  const isActiveSortBy = activeSortBy ? activeSortBy === name : '';
+  const { name, id, clickable } = props;
+  const params = useParams();
+  const history = useHistory();
   return (
     <Styled.FilterItem
-      active={
-        (isActiveCategory && !searchTerm.searchTerm.length) ||
-        (isActiveSortBy && searchTerm.searchTerm.length)
+      // to={`${id === 1 ? `${name}` : `${params.searchTerm}/${name}`}`}
+      onClick={() =>
+        id === 2 ? history.push(`/search/${params.searchTerm}/${name}`) : history.push(`/${name}`)
       }
-      clickable={
-        (searchTerm.searchTerm.length && id === 2) || (!searchTerm.searchTerm.length && id === 1)
-          ? false
-          : true
-      }
-      onClick={() => onClickHandler(name)}
+      active={params.category === name || params.sortBy === name}
+      clickable={clickable}
     >
       {name}
     </Styled.FilterItem>
