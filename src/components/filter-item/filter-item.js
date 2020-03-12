@@ -1,12 +1,11 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import { useParams, useLocation, useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import * as Styled from './filter-item.styles';
 
 export const FilterItem = props => {
-  const searchTerm = useSelector(state => state.searchTerm);
   const { name, id, clickable } = props;
   const params = useParams();
   const history = useHistory();

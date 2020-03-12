@@ -6,6 +6,8 @@ export const NewsItem = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
+  border-radius: 0.7rem;
+  overflow: hidden;
   grid-row: ${props => (props.width > 1200 ? 'span 2' : '')};
   grid-column: ${props => (props.width > 1200 ? 'span 2' : '')};
   box-shadow: 0 2rem 2rem rgb(0, 0, 0, 0.6);
@@ -66,7 +68,8 @@ export const ImageNotLoaded = styled.div`
 
 export const Bookmark = styled(BookmarkSVG)`
   position: absolute;
-  width: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
   top: 1rem;
   right: 1.2rem;
   z-index: 1;

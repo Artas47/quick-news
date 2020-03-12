@@ -10,14 +10,14 @@ import Footer from '../components/footer/footer';
 import THEME from '../theme/theme';
 /*
 TO DO
-refactor fetching news action to be more readable
+refactor news action to be more readable
 fix animation when page first starts - DONE
 fix toggle-button to be "checked" - DONE
 add possibility to not lazyload images
 add settings to local storage - DONE
 make settings dropdown responsible - DONE
-fix background color animation when page first starts
-animate settings dropdown
+fix background color animation when page first starts on dark mode
+add modal
 */
 
 function App() {
@@ -30,7 +30,13 @@ function App() {
           <Header />
           <Route
             exact
-            path={['/', '/:category', '/search/:searchTerm', '/search/:searchTerm/:sortBy']}
+            path={[
+              '/',
+              '/bookmarks',
+              '/:category',
+              '/search/:searchTerm',
+              '/search/:searchTerm/:sortBy'
+            ]}
           >
             <Filters />
             <NewsList />

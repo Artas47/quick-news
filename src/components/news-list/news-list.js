@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import LazyLoad from 'react-lazyload';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import NewsItemContainer from '../news-item/news-item.container';
 import * as Styled from './news-list.styles';
-import { fetchNewsStart, fetchSearchNewsStart } from '../../actions/index';
+import { fetchNewsStart, fetchSearchNewsStart, showItemsFromStore } from '../../actions/index';
 import Spinner from '../spinner/spinner';
 
 export const News = () => {
@@ -14,7 +14,10 @@ export const News = () => {
   const areNewsOneSized = useSelector(state => state.settings.oneSizedNews);
   const activeLanguage = useSelector(state => state.language.activeLanguage);
   const activeSort = useSelector(state => state.activeSort.activeSort);
+  const store = useSelector(state => state.itemsStore.store);
   const params = useParams();
+  const location = useLocation();
+  console.log(params);
   useEffect(() => {
     if (params.searchTerm && params.sortBy) {
       dispatch(fetchSearchNewsStart(params.searchTerm, params.sortBy, activeLanguage));
@@ -22,6 +25,10 @@ export const News = () => {
     }
     if (params.searchTerm) {
       dispatch(fetchSearchNewsStart(params.searchTerm, 'popularity', activeLanguage));
+      return;
+    }
+    if (location.pathname === '/bookmarks') {
+      dispatch(showItemsFromStore(store));
       return;
     }
     dispatch(
@@ -32,7 +39,7 @@ export const News = () => {
         activeSort
       )
     );
-  }, [areNewsOneSized, activeLanguage, dispatch, params]);
+  }, [areNewsOneSized, activeLanguage, dispatch, params.category, params.sortBy]);
 
   const fileteredNews = topNews.filter(news => {
     return news.urlToImage;
@@ -67,4 +74,4 @@ export const News = () => {
   );
 };
 
-export default News;
+export default React.memo(News);

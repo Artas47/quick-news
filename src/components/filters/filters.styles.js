@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Filters = styled.div`
   width: 100%;
-  height: 10rem;
+  height: 14rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

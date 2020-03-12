@@ -11,8 +11,7 @@ export const Footer = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 1.5rem;
+  color: #fff;
   transition: all 1s;
 
   @media only screen and (max-width: 900px) {
@@ -21,10 +20,10 @@ export const Footer = styled.footer`
 `;
 
 export const PoweredByText = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin-bottom: 0.4rem;
 `;
 
 export const CopyrightText = styled.p`
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 `;
