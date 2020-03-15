@@ -16,8 +16,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   body {
     font-family: 'Raleway', sans-serif;
-    /* overflow-y: scroll; */
+     overflow-y: scroll; 
     background-color: ${props => props.theme.mainContentBg};
-    transition: background-color 1s;
   }
 `;

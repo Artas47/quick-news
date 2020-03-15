@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const FilterItem = styled(Link)`
@@ -16,17 +16,26 @@ export const FilterItem = styled(Link)`
   color: ${props => props.theme.filterItemTextColor};
   transition: all 0.2s;
   ${props =>
-    props.clickable
-      ? `color: ${props.theme.filterItemTextColorDisabled}; pointer-events: none;`
-      : ''}
+    props.clickable &&
+    css`
+      color: ${props.theme.filterItemTextColorDisabled};
+      pointer-events: none;
+    `};
   ${props =>
-    props.active ? 'background-color: #54a0eb; border-color: white;' : ''}
-    :not(:last-child) {
+    props.active &&
+    css`
+      background-color: #54a0eb;
+      border-color: white;
+    `}
+  :not(:last-child) {
     margin-right: 1rem;
   }
   :hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(84, 160, 235, 0.6);
   }
+  /* :hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  } */
   @media only screen and (max-width: 950px) {
     padding: 2rem 2rem;
   }

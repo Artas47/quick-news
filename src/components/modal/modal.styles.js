@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ReactComponent as ArrowRightSVG } from '../../assets/arrow-right2.svg';
+import { ReactComponent as CancelSVG } from '../../assets/cross.svg';
 import Button from '../button/button';
 
 export const Modal = styled.div`
@@ -16,7 +17,7 @@ export const Modal = styled.div`
 `;
 
 export const ModalContent = styled.div`
-  position: sticky;
+  position: relative;
   color: white;
   z-index: 3;
   width: 100rem;
@@ -25,8 +26,11 @@ export const ModalContent = styled.div`
   box-shadow: 0 1rem 2rem rgb(0, 0, 0, 0.9);
   overflow-y: scroll;
   @media only screen and (max-width: 1200px) {
-    width: 85rem;
+    width: 70%;
     margin-top: 0;
+  }
+  @media only screen and (max-width: 900px) {
+    height: 80%;
   }
 `;
 
@@ -44,6 +48,9 @@ export const ModalImage = styled.div`
     ${props => `url("${props.src}")`};
   background-size: cover;
   background-position: center;
+  @media only screen and (max-width: 900px) {
+    height: 60%;
+  }
   @media only screen and (max-height: 500px) {
     height: 30rem;
   }
@@ -58,7 +65,9 @@ export const ModalDescription = styled.div`
   /* @media only screen and (max-width: 1000px) {
     height: 60%;
   } */
-
+  @media only screen and (max-width: 900px) {
+    min-height: 40%;
+  }
   @media only screen and (max-width: 800px) {
     padding: 2rem;
   }
@@ -76,9 +85,22 @@ export const ModalDescription = styled.div`
 export const ModalTitle = styled.h3`
   position: absolute;
   bottom: 3rem;
-  left: 3rem;
+  left: 0;
+  padding: 0rem 3rem;
   font-size: 3rem;
   font-weight: 500;
+  @media only screen and (max-width: 1000px) {
+    font-size: 2.5rem;
+  }
+  @media only screen and (max-width: 550px) {
+    padding: 0rem 2rem;
+    bottom: 1rem;
+    font-size: 2.2rem;
+  }
+  @media only screen and (max-width: 450px) {
+    font-size: 1.9rem;
+    padding: 0rem 1rem;
+  }
 `;
 
 export const ModalDetails = styled.p`
@@ -86,11 +108,15 @@ export const ModalDetails = styled.p`
   margin-top: 3rem;
   line-height: 1.8;
   letter-spacing: 1px;
+  padding: 1rem 0;
   margin-bottom: 6rem;
   @media only screen and (max-width: 800px) {
     margin-top: 2rem;
     font-size: 1.6rem;
     line-height: 1.6;
+  }
+  @media only screen and (max-width: 650px) {
+    margin-bottom: 8rem;
   }
   @media only screen and (max-width: 400px) {
     margin-top: 1rem;
@@ -118,6 +144,17 @@ export const ModalButton = styled(Button)`
   bottom: 2rem;
   right: 4rem;
   margin-top: 5rem;
+  word-wrap: normal;
+  @media only screen and (max-width: 650px) {
+    width: 60%;
+    font-size: 1.5rem;
+    right: 50%;
+    transform: translate(50%, 0);
+    padding: 1rem 2rem;
+  }
+  @media only screen and (max-width: 450px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const ModalRelease = styled.p`
@@ -125,4 +162,23 @@ export const ModalRelease = styled.p`
   top: 2rem;
   right: 4rem;
   font-size: 1.5rem;
+  @media only screen and (max-width: 800px) {
+    top: 1rem;
+    right: 2rem;
+  }
+  @media only screen and (max-width: 450px) {
+    top: 0.5rem;
+    right: 1rem;
+  }
+`;
+
+export const ModalCancel = styled(CancelSVG)`
+  position: sticky;
+  top: 2rem;
+  right: 1rem;
+  margin-left: 95%;
+  height: 2rem;
+  fill: #a9a9a9;
+  z-index: 5;
+  cursor: pointer;
 `;
