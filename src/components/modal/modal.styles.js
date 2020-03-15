@@ -160,7 +160,7 @@ export const ModalButton = styled(Button)`
 export const ModalRelease = styled.p`
   position: absolute;
   top: 2rem;
-  right: 4rem;
+  left: 4rem;
   font-size: 1.5rem;
   @media only screen and (max-width: 800px) {
     top: 1rem;
@@ -173,12 +173,12 @@ export const ModalRelease = styled.p`
 `;
 
 export const ModalCancel = styled(CancelSVG)`
-  position: sticky;
-  top: 2rem;
-  right: 1rem;
-  margin-left: 95%;
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
   height: 2rem;
-  fill: #a9a9a9;
+  fill: #fff;
   z-index: 5;
   cursor: pointer;
+  z-index: 50;
 `;

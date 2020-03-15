@@ -11,11 +11,11 @@ const Modal = ({ news, toggleModal }) => {
       <Styled.Modal onClick={() => toggleModal()}>
         {news ? (
           <Styled.ModalContent onClick={e => e.stopPropagation()}>
-            <Styled.ModalCancel onClick={() => toggleModal()} />
             <Styled.ModalImage alt={news.title} src={news.urlToImage}>
               <Styled.ModalTitle>{news.title}</Styled.ModalTitle>
             </Styled.ModalImage>
             <Styled.ModalDescription>
+              <Styled.ModalCancel onClick={() => toggleModal()} />
               <Styled.ModalRelease>
                 Published at {news.publishedAt.slice(0, 10)}
               </Styled.ModalRelease>
