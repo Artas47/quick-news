@@ -5,7 +5,6 @@ import * as Styled from './news-item.styles';
 import Spinner from '../spinner/spinner';
 import Fade from '../fade-animation/fade';
 import Modal from '../modal/modal';
-import ReactDOM from 'react-dom';
 
 export const NewsItem = props => {
   const ref = useRef();
@@ -17,7 +16,6 @@ export const NewsItem = props => {
     imgWidth,
     isBookmarked,
     handleOnClick,
-    url,
     isAnimationLoading,
     handleImageError,
     handleImageLoaded,
@@ -53,13 +51,8 @@ export const NewsItem = props => {
   };
 
   return (
-    <Styled.NewsItem
-      onClick={onClickHandler}
-      background={isLoaded === 'error'}
-      height={imgHeight}
-      width={imgWidth}
-    >
-      {showModal ? <Modal news={wholeItem} /> : ''}
+    <Styled.NewsItem background={isLoaded === 'error'} height={imgHeight} width={imgWidth}>
+      {showModal ? <Modal news={wholeItem} toggleModal={onClickHandler} /> : ''}
       <Styled.Bookmark isbookmarked={isBookmarked()} onClick={handleOnClick} />
 
       <Styled.ImageNotLoaded>{isLoaded === 'loading' ? <Spinner /> : ''}</Styled.ImageNotLoaded>
@@ -68,11 +61,15 @@ export const NewsItem = props => {
           visible={isLoaded === 'loaded'}
           onLoad={handleImageLoaded}
           onError={handleImageError}
+          onClick={onClickHandler}
           ref={ref}
           src={imgUrl}
         />
       </Fade>
-      <Styled.NewsItemTitle visible={isLoaded === 'error' || isLoaded === 'loaded'}>
+      <Styled.NewsItemTitle
+        onClick={onClickHandler}
+        visible={isLoaded === 'error' || isLoaded === 'loaded'}
+      >
         {title}
       </Styled.NewsItemTitle>
     </Styled.NewsItem>
@@ -86,7 +83,6 @@ NewsItem.propTypes = {
   imgWidth: PropTypes.number.isRequired,
   isBookmarked: PropTypes.func.isRequired,
   handleOnClick: PropTypes.func.isRequired,
-  url: PropTypes.string.isRequired,
   isAnimationLoading: PropTypes.bool.isRequired,
   handleImageError: PropTypes.func.isRequired,
   handleImageLoaded: PropTypes.func.isRequired,

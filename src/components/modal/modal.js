@@ -1,32 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { useHistory } from 'react-router-dom';
 import * as Styled from './modal.styles';
 import { Spinner } from '../spinner/spinner';
-// import Fade from '../fade-animation/fade';
-// import RatingBox from '../rating-box/rating-box';
-// import { useStateValue } from '../../context/state';
 
-const Modal = ({ news }) => {
-  const history = useHistory();
+const Modal = ({ news, toggleModal }) => {
   const renderModalContent = () => {
     return (
-      <Styled.Modal onClick={() => history.push('/')}>
+      <Styled.Modal onClick={() => toggleModal()}>
         {news ? (
           <Styled.ModalContent onClick={e => e.stopPropagation()}>
             <Styled.ModalImage alt={news.title} src={news.urlToImage}>
               <Styled.ModalTitle>{news.title}</Styled.ModalTitle>
             </Styled.ModalImage>
             <Styled.ModalDescription>
+              <Styled.ModalRelease>
+                Published at
+                {news.publishedAt.slice(0, 10)}
+              </Styled.ModalRelease>
               <Styled.ModalDetails>
-                <Styled.ModalDetailsItem>{news.publishedAt}</Styled.ModalDetailsItem>
-              </Styled.ModalDetails>
-              <Styled.ModalPlot>
-                {news.description}
+                {/* {news.description}
                 <br />
-                <br />
+                <br /> */}
                 {news.content}
-              </Styled.ModalPlot>
+              </Styled.ModalDetails>
+              <Styled.ModalButton target="_blank" rel="noopener" href={news.url}>
+                Read more
+                <Styled.ArrowRight />
+              </Styled.ModalButton>
             </Styled.ModalDescription>
           </Styled.ModalContent>
         ) : (
