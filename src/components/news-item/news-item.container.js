@@ -12,7 +12,6 @@ const NewsItemContainer = props => {
   const [isAnimationLoading, setIsAnimationLoading] = useState(false);
   const { url, imgUrl, title, wholeItem } = props;
   const store = useSelector(state => state.itemsStore.store);
-
   const handleImageLoaded = () => {
     setIsLoaded('loaded');
     setIsAnimationLoading(true);
@@ -46,6 +45,7 @@ const NewsItemContainer = props => {
       handleOnClick={handleOnClick}
       setImgWidth={setImgWidth}
       setImgHeight={setImgHeight}
+      wholeItem={wholeItem}
     />
   );
 };

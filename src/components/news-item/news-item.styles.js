@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Background from '../../assets/img-not-found.png';
 import { ReactComponent as BookmarkSVG } from '../../assets/bookmarks.svg';
 
-export const NewsItem = styled.div`
+export const NewsItem = styled(Link)`
   width: 100%;
   height: 100%;
   position: relative;
@@ -18,7 +19,7 @@ export const NewsItem = styled.div`
   background-image: ${props => (props.background ? `url(${Background})` : '')};
   background-size: cover;
   background-position: center;
-  user-select: none;
+  overflow: hidden;
   @media only screen and (max-width: 900px) {
     height: ${props => (props.height === 0 ? '25rem' : '100%')};
     box-shadow: 0 2rem 2rem rgb(0, 0, 0, 0.2);

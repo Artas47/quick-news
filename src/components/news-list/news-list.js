@@ -17,7 +17,6 @@ export const News = () => {
   const store = useSelector(state => state.itemsStore.store);
   const params = useParams();
   const location = useLocation();
-  console.log(params);
   useEffect(() => {
     if (params.searchTerm && params.sortBy) {
       dispatch(fetchSearchNewsStart(params.searchTerm, params.sortBy, activeLanguage));

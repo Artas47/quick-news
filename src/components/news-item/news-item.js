@@ -1,13 +1,16 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as Styled from './news-item.styles';
 import Spinner from '../spinner/spinner';
 import Fade from '../fade-animation/fade';
+import Modal from '../modal/modal';
+import ReactDOM from 'react-dom';
 
 export const NewsItem = props => {
   const ref = useRef();
   const areNewsOneSized = useSelector(state => state.settings.oneSizedNews.value);
+  const [showModal, setShowModal] = useState(false);
   const {
     isLoaded,
     imgHeight,
@@ -21,7 +24,8 @@ export const NewsItem = props => {
     imgUrl,
     title,
     setImgWidth,
-    setImgHeight
+    setImgHeight,
+    wholeItem
   } = props;
   useEffect(() => {
     if (areNewsOneSized) {
@@ -44,24 +48,33 @@ export const NewsItem = props => {
   //   return `${titleForAlt.slice(0, 20)}...`;
   // };
 
+  const onClickHandler = () => {
+    setShowModal(!showModal);
+  };
+
   return (
-    <Styled.NewsItem background={isLoaded === 'error'} height={imgHeight} width={imgWidth}>
+    <Styled.NewsItem
+      onClick={onClickHandler}
+      background={isLoaded === 'error'}
+      height={imgHeight}
+      width={imgWidth}
+    >
+      {showModal ? <Modal news={wholeItem} /> : ''}
       <Styled.Bookmark isbookmarked={isBookmarked()} onClick={handleOnClick} />
-      <a href={url} rel="noopener noreferrer" target="_blank">
-        <Styled.ImageNotLoaded>{isLoaded === 'loading' ? <Spinner /> : ''}</Styled.ImageNotLoaded>
-        <Fade in={isAnimationLoading}>
-          <Styled.NewsItemImg
-            visible={isLoaded === 'loaded'}
-            onLoad={handleImageLoaded}
-            onError={handleImageError}
-            ref={ref}
-            src={imgUrl}
-          />
-        </Fade>
-        <Styled.NewsItemTitle visible={isLoaded === 'error' || isLoaded === 'loaded'}>
-          {title}
-        </Styled.NewsItemTitle>
-      </a>
+
+      <Styled.ImageNotLoaded>{isLoaded === 'loading' ? <Spinner /> : ''}</Styled.ImageNotLoaded>
+      <Fade in={isAnimationLoading}>
+        <Styled.NewsItemImg
+          visible={isLoaded === 'loaded'}
+          onLoad={handleImageLoaded}
+          onError={handleImageError}
+          ref={ref}
+          src={imgUrl}
+        />
+      </Fade>
+      <Styled.NewsItemTitle visible={isLoaded === 'error' || isLoaded === 'loaded'}>
+        {title}
+      </Styled.NewsItemTitle>
     </Styled.NewsItem>
   );
 };

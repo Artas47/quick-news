@@ -8,16 +8,17 @@ import Header from '../components/header/header';
 import Filters from '../components/filters/filters';
 import Footer from '../components/footer/footer';
 import THEME from '../theme/theme';
+import Modal from '../components/modal/modal';
 /*
 TO DO
 refactor news action to be more readable
-fix animation when page first starts - DONE
-fix toggle-button to be "checked" - DONE
 add possibility to not lazyload images
-add settings to local storage - DONE
-make settings dropdown responsible - DONE
 fix background color animation when page first starts on dark mode
 add modal
+fix animation when page first starts - DONE
+fix toggle-button to be "checked" - DONE
+add settings to local storage - DONE
+make settings dropdown responsible - DONE
 */
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
           >
             <Filters />
             <NewsList />
+          </Route>
+          <Route exact path="/news/:newsId">
+            <Modal />
           </Route>
           <Footer />
         </Router>
