@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import { BrowserRouter as Router, Route, Redirect, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import NewsList from '../components/news-list/news-list';
 import { GlobalStyles } from '../global-styles';
 import Header from '../components/header/header';

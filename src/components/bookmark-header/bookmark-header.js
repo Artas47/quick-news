@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { showItemsFromStore, clearStoreItems } from '../../actions/index';
+import { clearStoreItems } from '../../actions/index';
 import * as Styled from './bookmark-header.styles';
 
 const BookmarkHeader = () => {

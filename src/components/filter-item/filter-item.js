@@ -2,7 +2,6 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 import { useParams, useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import * as Styled from './filter-item.styles';
 
 export const FilterItem = props => {
@@ -25,18 +24,7 @@ export const FilterItem = props => {
 
 export default FilterItem;
 
-FilterItem.defaultProps = {
-  activeCategory: 'general',
-  activeSortBy: 'popularity',
-  setActiveCategory: () => {},
-  setActiveSortBy: () => {}
-};
-
 FilterItem.propTypes = {
-  activeCategory: PropTypes.string,
-  setActiveCategory: PropTypes.func,
-  activeSortBy: PropTypes.string,
-  setActiveSortBy: PropTypes.func,
   name: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired
 };

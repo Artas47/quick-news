@@ -2,10 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as Styled from './modal.styles';
 import { Spinner } from '../spinner/spinner';
-import { useHistory } from 'react-router-dom';
 
 const Modal = ({ news, toggleModal }) => {
-  const history = useHistory();
   const renderModalContent = () => {
     return (
       <Styled.Modal onClick={() => toggleModal()}>
