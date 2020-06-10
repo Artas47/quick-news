@@ -6,7 +6,7 @@ import { fetchNewsSuccess } from '../actions/index';
 export function* fetchNewsAsync({ payload }) {
   try {
     const response = yield axios.get(
-      `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines${payload}apiKey=e5b7f867d3024285b78911aea71aaf23`
+      `https://newsapi.org/v2/top-headlines${payload}apiKey=e5b7f867d3024285b78911aea71aaf23`
     );
     const topNews = yield response.data;
     yield put(fetchNewsSuccess(topNews));
