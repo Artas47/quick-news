@@ -1,7 +1,7 @@
 import { call, put, all, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 import { FETCH_NEWS_START } from '../actions/types';
-import { fetchNewsSuccess } from '../actions/index';
+import { fetchNewsSuccess, setError } from '../actions/index';
 
 export function* fetchNewsAsync({ payload }) {
   try {
@@ -11,6 +11,7 @@ export function* fetchNewsAsync({ payload }) {
     const topNews = yield response.data;
     yield put(fetchNewsSuccess(topNews));
   } catch (error) {
+    yield put(setError());
     console.log(error);
   }
 }

@@ -3,12 +3,14 @@ import {
   FETCH_NEWS_SUCCESS,
   FETCH_SEARCH_NEWS_SUCCESS,
   FETCH_SEARCH_NEWS_START,
-  SHOW_ITEMS_FROM_STORE
+  SHOW_ITEMS_FROM_STORE,
+  SET_ERROR
 } from '../actions/types';
 
 const INITIAL_STATE = {
   topNews: [],
-  isLoading: false
+  isLoading: false,
+  hasError: false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -32,6 +34,12 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         topNews: action.payload.articles,
         isLoading: false
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        hasError: 'error'
       };
     default:
       return { ...state };

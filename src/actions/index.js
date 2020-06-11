@@ -12,7 +12,8 @@ import {
   DELETE_ITEM_FROM_STORE,
   SHOW_ITEMS_FROM_STORE,
   CLEAR_STORE_ITEMS,
-  NEWS_SIZE_CHANGE
+  NEWS_SIZE_CHANGE,
+  SET_ERROR
 } from './types';
 
 export const fetchNewsStart = query => {
@@ -65,6 +66,12 @@ export const setActiveSort = sort => {
   return {
     type: SET_ACTIVE_SORT,
     payload: sort
+  };
+};
+
+export const setError = () => {
+  return {
+    type: SET_ERROR
   };
 };
 

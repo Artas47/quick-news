@@ -32,3 +32,21 @@ export const NewsNotFoundText = styled.div`
   transition: all 0.4s;
   color: ${props => props.theme.newsNotFoundTextColor};
 `;
+
+export const ErrorMessageHeaderPrimary = styled.p`
+  font-size: 3.5rem;
+`;
+
+export const ErrorMessageHeaderSecondary = styled.p`
+  font-size: 2rem;
+  width: 50%;
+  margin: 0 auto;
+`;
+
+export const ErrorMessageWrapper = styled.div`
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 1rem;
+  color: ${props => props.theme.newsNotFoundTextColor};
+`;

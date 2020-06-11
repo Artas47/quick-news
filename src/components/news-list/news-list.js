@@ -10,6 +10,7 @@ import Spinner from '../spinner/spinner';
 export const News = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(state => state.news.isLoading);
+  const hasError = useSelector(state => state.news.hasError);
   const topNews = useSelector(state => state.news.topNews);
   const areNewsOneSized = useSelector(state => state.settings.oneSizedNews);
   const activeLanguage = useSelector(state => state.language.activeLanguage);
@@ -46,6 +47,21 @@ export const News = () => {
 
   if (isLoading) {
     return <Spinner />;
+  }
+  if (!isLoading && hasError) {
+    return (
+      <Styled.ErrorMessageWrapper>
+        <Styled.ErrorMessageHeaderPrimary>
+          Sorry, the news api has changed and I cannot use it for free anymore in production. If you
+          want to run the project you have to install it locally.
+          <br />
+        </Styled.ErrorMessageHeaderPrimary>
+        <Styled.ErrorMessageHeaderSecondary>
+          Download the project from github and just run "npm install" then "npm start" in the
+          project folder.
+        </Styled.ErrorMessageHeaderSecondary>
+      </Styled.ErrorMessageWrapper>
+    );
   }
   if (!isLoading && !fileteredNews.length) {
     return (
